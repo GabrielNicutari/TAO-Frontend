@@ -1,8 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
-import { history } from '../..';
-import { Activity } from '../models/activity';
-import { store } from '../stores/store';
+import { history } from '../index';
 
 const sleep = (delay: number) => {
     return new Promise((resolve) => {
@@ -41,7 +39,7 @@ axios.interceptors.response.use(async response => {
             history.push('/not-found');
             break;
         case 500:
-            store.commonStore.setServerError(data);
+            // store.commonStore.setServerError(data);
             history.push('/server-error');
             break;
     }
@@ -57,16 +55,16 @@ const requests = {
     del: <T>(url: string) => axios.delete<T>(url).then(responseBody),
 }
 
-const Activities = {
-    list: () => requests.get<Activity[]>('/activities'),
-    details: (id: string) => requests.get<Activity>(`/activities/${id}`),
-    create: (activity: Activity) => axios.post<void>('/activities', activity),
-    update: (activity: Activity) => axios.put<void>(`/activities/${activity.id}`, activity),
-    delete: (id: string) => axios.delete<void>(`/activities/${id}`)
-}
+// const Activities = {
+//     list: () => requests.get<Activity[]>('/activities'),
+//     details: (id: string) => requests.get<Activity>(`/activities/${id}`),
+//     create: (activity: Activity) => axios.post<void>('/activities', activity),
+//     update: (activity: Activity) => axios.put<void>(`/activities/${activity.id}`, activity),
+//     delete: (id: string) => axios.delete<void>(`/activities/${id}`)
+// }
 
 const agent = {
-    Activities
+    // Activities
 }
 
 export default agent;
