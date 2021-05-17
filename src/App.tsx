@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Container } from 'semantic-ui-react';
+import NavBar from './app/layout/NavBar';
+import ActivityDashboard from './features/activities/dashboard/ActivityDashboard';
+import { observer } from 'mobx-react-lite';
+import { Route, Switch, useLocation } from 'react-router-dom';
+import HomePage from './features/home/HomePage';
+import ActivityForm from './features/activities/form/ActivityForm';
+import ActivityDetails from './features/activities/details/ActivityDetails';
+import TestErrors from './features/errors/TestError';
+import { ToastContainer } from 'react-toastify';
+import NotFound from './features/errors/NotFound';
+import ServerError from './features/errors/ServerError';
+import ContactForm from "./features/ContactForm";
 
 function App() {
+  const location = useLocation();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ToastContainer position='bottom-right' hideProgressBar />
+      <Route exact path='/' component={HomePage} />
+      <Route
+        path={'/(.+)'}
+        render={() => (
+          <>
+            <NavBar />
+            <Container style={{ marginTop: '7em' }}>
+              <Switch>
+                <Route exact path='/activities' component={ActivityDashboard} />
+                <Route path='/activities/:id' component={ActivityDetails} />
+                <Route key={location.key} path={['/createActivity', '/manage/:id']} component={ActivityForm} />
+                <Route path='/errors' component={TestErrors} />
+                <Route path='/server-error' component={ServerError} />
+                <Route path='/contactForm' component={ContactForm} />
+                <Route component={NotFound} />
+              </Switch>
+            </Container>
+          </>
+        )}
+      />
+    </>
   );
 }
 
-export default App;
+export default observer(App);
