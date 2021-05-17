@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container } from 'semantic-ui-react';
-import NavBar from './components/NavBar';
+import NavBar from './components/nav-bar/nav-bar.component';
 import { observer } from 'mobx-react-lite';
 import { Route, Switch, useLocation } from 'react-router-dom';
-import HomePage from './pages/home/HomePage';
+import HomePage from './pages/home-page/home-page.component';
 import { ToastContainer } from 'react-toastify';
-import ContactForm from "./components/ContactForm";
+import ContactForm from "./components/contact-form/contact-form.component";
 
 function App() {
   const location = useLocation();
