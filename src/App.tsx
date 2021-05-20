@@ -12,24 +12,16 @@ function App() {
 
   return (
     <>
-      <ToastContainer position='bottom-right' hideProgressBar />
-      <Route exact path='/' component={HomePage} />
-      <Route
-        path={'/(.+)'}
-        render={() => (
-          <>
-            <NavBar />
-            <Container style={{ marginTop: '7em' }}>
-              <Switch>
-                <Route exact path='/activities'  />
-                <Route path='/activities/:id'  />
-                <Route key={location.key} path={['/createActivity', '/manage/:id']}  />
-                <Route path='/contactForm' component={ContactForm} />
-              </Switch>
-            </Container>
-          </>
-        )}
-      />
+        <NavBar />
+        <Container style={{ marginTop: '7em' }}>
+          <Switch>
+            <Route exact path='/' component={HomePage} />
+            <Route exact path='/activities'  />
+            <Route path='/activities/:id'  />
+            <Route key={location.key} path={['/createActivity', '/manage/:id']}  />
+            <Route path='/contactForm' component={ContactForm} />
+          </Switch>
+        </Container>
     </>
   );
 }
