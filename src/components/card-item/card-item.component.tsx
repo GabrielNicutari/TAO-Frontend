@@ -10,15 +10,23 @@ interface Props {
         },
         weather: [
             icon: any
-        ]
+        ],
+        wind_speed: number,
+        humidity: number
     },
     index: number
 }
 
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
 export default function CardItem(props: Props) {
+    let now = new Date();
+    now.setDate(now.getDate() + (props.index - 2 + (7 - now.getDay())) % 7);
+
     return (
         <div className='card'>
-            <h1 className='day'>Today</h1>
+            <h1 className='day'>{days[now.getDay()]}</h1>
             <img className='vector-right' alt='vector' src={vectorRight}/>
             <img className='vector-left' alt='vector' src={vectorLeft}/>
             <img
@@ -27,20 +35,20 @@ export default function CardItem(props: Props) {
                 src={`http://openweathermap.org/img/wn/${props.data.weather[0].icon}@2x.png`}
             />
             <div className='weather-info'>
-                <span className='date'>Today, 21 May</span>
+                <span className='date'>{days[now.getDay()]}, {now.getDate()}, {months[now.getMonth()]}</span>
                 <span className='temperature'>{props.data.temp.day}°</span>
-                <span className='description'>Cloudy</span>
+                <span className='description'>{props.data.weather[0].main}</span>
                 <div className='details'>
                     <div className='wind'>
                         <span>Wind</span>
                         <span>|</span>
-                        <span>10 km/h</span>
+                        <span>{props.data.wind_speed} km/h</span>
                     </div>
 
                     <div className='humidity'>
-                        <span>Hum</span>
+                        <span>Humidity</span>
                         <span>|</span>
-                        <span>54%</span>
+                        <span>{props.data.humidity}%</span>
                     </div>
                 </div>
             </div>
