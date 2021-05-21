@@ -10,17 +10,23 @@ import './index.scss';
 
 function App() {
   const location = useLocation();
+  const divStyle = {
+    marginTop: '3.7em'
+  };
 
   return (
     <>
         <NavBar />
+        <div style={divStyle}>
           <Switch>
-            <Route exact path='/' component={HomePage} />
-            <Route exact path='/activities'  />
-            <Route path='/activities/:id'  />
-            <Route key={location.key} path={['/createActivity', '/manage/:id']}  />
-            <Route path='/contactForm' component={ContactForm} />
-          </Switch>
+              <Route exact path='/' component={HomePage} />
+              <Route exact path='/activities'  />
+              <Route path='/activities/:id'  />
+              <Route key={location.key} path={['/createActivity', '/manage/:id']}  />
+              <Route path='/contactForm' component={ContactForm} />
+            </Switch>
+        </div>
+          
     </>
   );
 }
