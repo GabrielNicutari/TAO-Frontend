@@ -21,7 +21,7 @@ function App() {
               <Route exact path='/activities'  />
               <Route path='/activities/:id'  />
               <Route key={location.key} path={['/createActivity', '/manage/:id']}  />
-              <Route path='/contactForm' component={ContactForm} />
+              <Route path='/contact' component={ContactForm} />
             </Switch>
         </div>
           
