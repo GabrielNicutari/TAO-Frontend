@@ -5,6 +5,7 @@ import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
 import PhoneOutlinedIcon from '@material-ui/icons/PhoneOutlined';
 import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 import {Image} from "semantic-ui-react";
+import './contact-form.styles.scss'
 
 const ContactForm = () => {
     const [name, setName] = useState('');
