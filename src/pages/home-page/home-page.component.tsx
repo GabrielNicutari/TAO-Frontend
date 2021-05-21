@@ -1,11 +1,14 @@
 import React from 'react';
 import {Button} from '@material-ui/core';
 import WeatherBanner from "../../components/weather-banner/weather-banner.component";
+import InfoCard from "../../components/info-card/info-card.component";
 import './home-page.styles.scss';
 import house from '../../assets/house.png';
 import profileIcon from '../../assets/profile_icon.png';
 import shieldIcon from '../../assets/shield_icon.png';
 import happyFaceIcon from '../../assets/happy_face_icon.png';
+import StripesDark from '../../assets/stripes-dark.png';
+import StripesBlue from '../../assets/stripes-blue.png'
 
 
 export default function HomePage() {
@@ -63,7 +66,20 @@ export default function HomePage() {
                     <div>Lorem ipsum dolor sit amet,consectetasdasd asd asdas dasd asd asd asdas dasd ad asda a asd as aa da sdasdas da sdasd asd asasd asasd asdasda sasdeu.</div>
                 </div>
             </div>
-            {/*<div className="more-info"></div>*/}
+            
+            <div className="info-container">
+                <img src={StripesDark} alt="stripes-dark" className="stripes-dark-right-top"/>
+                <div className="items">
+                    <div className="text" >What we do to help our customers preserve more energy</div>
+                    <InfoCard />
+                    <InfoCard />
+                    <InfoCard />
+                    
+
+                </div>
+                <img src={StripesBlue} alt="stripes-blue" className="stripes-blue-left"/>
+                <img src={StripesDark} alt="stripes-dark" className="stripes-dark-right-bottom"/>
+            </div>
         </div>
     )
 }

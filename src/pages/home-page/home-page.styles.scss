@@ -29,7 +29,6 @@
     background-color: rgb(74,153,211, .1);
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
     padding-bottom: 60px;
 }
 
@@ -43,6 +42,8 @@
 
 .small-box {
     text-align: center;
+    width: 33.33%;
+    padding: 0 1vw;
 }
 
 .small-icon {
@@ -51,4 +52,42 @@
 
 b {
     line-height: 2;
+}
+
+.info-container {
+    position: relative;
+}
+
+.stripes-dark-right-top {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.stripes-dark-right-bottom {
+    position: absolute;
+    right: 0;
+    top: 70%;
+    z-index: 0;
+}
+
+.stripes-blue-left {
+    position: absolute;
+    right: 84%;
+    top: 70%;
+    z-index: 0;
+}
+
+.items {
+    padding: 40px 300px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.text {
+    font-size: 25px;
+    width: 40%;
+    font-weight: bold;
+    line-height: 1.1;
 }
