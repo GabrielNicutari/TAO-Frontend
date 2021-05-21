@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button} from '@material-ui/core';
+import WeatherBanner from "../../components/weather-banner/weather-banner.component";
 import './home-page.styles.scss'
 import house from '../../assets/house.png'
 
@@ -16,7 +17,7 @@ export default function HomePage() {
                  
                 <img src={house} alt="house" />
             </div>
-            {/* <WeatherBanner /> */}
+            <WeatherBanner />
             {/*<div className="small-banner"></div>*/}
             {/*<div className="more-info"></div>*/}
         </div>
