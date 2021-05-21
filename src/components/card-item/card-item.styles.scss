@@ -11,20 +11,20 @@
   overflow: hidden;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
   color: white;
   font-family: 'Overpass', sans-serif;
 
   .vector-right {
     position: absolute;
     left: 40px;
+    top: -20px;
   }
 
   .vector-left {
     position: absolute;
     height: 120px;
     left: -10px;
-    top: 45px;
+    top: 60px;
   }
 
   .day {
@@ -32,6 +32,7 @@
   }
 
   .weather-info {
+    margin-top: 10px;
     width: 85%;
     height: 45%;
     padding: 5px;
