@@ -1,8 +1,11 @@
 import React from 'react';
 import {Button} from '@material-ui/core';
 import WeatherBanner from "../../components/weather-banner/weather-banner.component";
-import './home-page.styles.scss'
-import house from '../../assets/house.png'
+import './home-page.styles.scss';
+import house from '../../assets/house.png';
+import profileIcon from '../../assets/profile_icon.png';
+import shieldIcon from '../../assets/shield_icon.png';
+import happyFaceIcon from '../../assets/happy_face_icon.png';
 
 
 export default function HomePage() {
@@ -30,8 +33,36 @@ export default function HomePage() {
                  
                 <img src={house} alt="house" className="house-img"/>
             </div>
+
             <WeatherBanner />
-            {/*<div className="small-banner"></div>*/}
+
+            <div className="small-banner">
+                <div className="small-title">How It Works</div>
+
+                <div className="small-box">
+                    <div>
+                        <img src={profileIcon} alt="profile-icon" className="small-icon"/>
+                    </div>
+                    <b>Lorem</b> 
+                    <div>Lorem ipsum dolor sit amet,consecteteu.</div>
+                </div>
+
+                <div className="small-box">
+                    <div>
+                        <img src={shieldIcon} alt="profile-icon" className="small-icon"/>
+                    </div>
+                    <b>Lorem</b> 
+                    <div>Lorem ipsum dolor sit amet,consecteteu.</div>
+                </div>
+
+                <div className="small-box">
+                    <div>
+                        <img src={happyFaceIcon} alt="profile-icon" className="small-icon"/>
+                    </div>
+                    <b className="mini-title">Lorem</b> 
+                    <div>Lorem ipsum dolor sit amet,consectetasdasd asd asdas dasd asd asd asdas dasd ad asda a asd as aa da sdasdas da sdasd asd asasd asasd asdasda sasdeu.</div>
+                </div>
+            </div>
             {/*<div className="more-info"></div>*/}
         </div>
     )
