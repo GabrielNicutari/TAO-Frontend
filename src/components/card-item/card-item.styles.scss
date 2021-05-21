@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap');
+
+.card {
+  height: 300px;
+  width: 170px;
+  background: linear-gradient(rgba(0, 42, 57, 1), rgba(40, 205, 205, 1));
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-family: 'Overpass', sans-serif;
+
+  .vector-right {
+    position: absolute;
+    left: 40px;
+  }
+
+  .vector-left {
+    position: absolute;
+    height: 120px;
+    left: -10px;
+    top: 45px;
+  }
+
+  .day {
+    margin-top: 20px;
+  }
+
+  .weather-info {
+    width: 80%;
+    height: 40%;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 13.9839px;
+    border: 1.4px solid rgba(191, 191, 191, 0.7);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    @mixin text() {
+      text-shadow: 1.3983862400054932px -2.09757924079895px 4.1951584815979px rgba(0, 0, 0, 0.25), -4.1951584815979px 2.7967724800109863px 2.7967724800109863px rgba(0, 0, 0, 0.1);
+    }
+
+    .date {
+      font-size: 10px;
+      @include text();
+    }
+
+    .temperature {
+      color: #FFFFFF;
+      font-size: 30px;
+      line-height: 35px;
+      @include text();
+    }
+
+    .description {
+      @include text();
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include text();
+
+      .wind {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .humidity {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}
