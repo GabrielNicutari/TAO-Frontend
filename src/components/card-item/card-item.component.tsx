@@ -1,7 +1,9 @@
 import React from 'react';
 import './card-item.styles.scss';
-import vectorRight from '../../assets/vector-right.png'
-import vectorLeft from '../../assets/vector-left.png'
+import vectorRight from '../../assets/vector-right.png';
+import vectorLeft from '../../assets/vector-left.png';
+import wind from '../../assets/wind.png';
+import humidity from '../../assets/humidity.png';
 
 interface Props {
     data: {
@@ -38,18 +40,20 @@ export default function CardItem(props: Props) {
             <div className='weather-info'>
                 <span className='date'>{days[now.getDay()]}, {now.getDate()}, {months[now.getMonth()]}</span>
                 <span className='temperature'>{props.data.temp.day}°</span>
-                <span className='description'>{props.data.weather[0].main}</span>
+                <span className='description'>{props.data.weather[0].description}</span>
                 <div className='details'>
                     <div className='wind'>
-                        <span>Wind</span>
-                        <span>|</span>
-                        <span>{props.data.wind_speed} km/h</span>
+                        <img className='detail-icon' src={wind} alt='wind'/>
+                        <span className='detail-category'>Wind</span>
+                        <span className='separator'>|</span>
+                        <span className='detail-value'>{props.data.wind_speed} km/h</span>
                     </div>
 
                     <div className='humidity'>
-                        <span>Humidity</span>
-                        <span>|</span>
-                        <span>{props.data.humidity}%</span>
+                        <img className='detail-icon' src={humidity} alt='humidity'/>
+                        <span className='detail-category'>Hum</span>
+                        <span className='separator'>|</span>
+                        <span className='detail-value'>{props.data.humidity}%</span>
                     </div>
                 </div>
             </div>

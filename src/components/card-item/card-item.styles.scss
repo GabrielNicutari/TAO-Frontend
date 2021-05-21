@@ -63,22 +63,41 @@
 
     .description {
       @include text();
+      text-transform: capitalize;
     }
 
     .details {
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 90%;
       @include text();
 
       .wind {
         display: flex;
+        width: 100%;
         justify-content: space-between;
+        margin-bottom: 7px;
       }
 
       .humidity {
         display: flex;
-        justify-content: space-between;
+        width: 100%;
+      }
+
+      .separator {
+        position: absolute;
+        left: 50%;
+      }
+
+      .detail-category {
+        position: absolute;
+        left: 28%;
+      }
+
+      .detail-value {
+        position: absolute;
+        left: 57%;
       }
     }
   }

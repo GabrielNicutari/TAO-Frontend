@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import CardItem from "../card-item/card-item.component";
 import './card-list.styles.scss';
-import {Container} from "@material-ui/core";
 
 const api = {
     key: process.env.REACT_APP_API_KEY,
