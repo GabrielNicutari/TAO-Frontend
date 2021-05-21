@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap');
 
 .card {
-  height: 300px;
-  width: 170px;
+  height: 350px;
+  width: 200px;
   background: linear-gradient(rgba(0, 42, 57, 1), rgba(40, 205, 205, 1));
+  box-shadow: -3.77069px 7.54137px 30.1655px 2.26241px rgba(19, 35, 78, 0.2);
+  border-radius: 10px;
   display: flex;
   position: relative;
   overflow: hidden;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   color: white;
   font-family: 'Overpass', sans-serif;
 
@@ -29,8 +32,8 @@
   }
 
   .weather-info {
-    width: 80%;
-    height: 40%;
+    width: 85%;
+    height: 45%;
     padding: 5px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 13.9839px;
@@ -38,6 +41,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 
     @mixin text() {
       text-shadow: 1.3983862400054932px -2.09757924079895px 4.1951584815979px rgba(0, 0, 0, 0.25), -4.1951584815979px 2.7967724800109863px 2.7967724800109863px rgba(0, 0, 0, 0.1);
