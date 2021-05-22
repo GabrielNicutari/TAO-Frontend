@@ -80,14 +80,19 @@ b {
 }
 
 .items {
-    padding: 40px 300px;
+    padding: 40px 290px;
     display: flex;
     flex-wrap: wrap;
 }
 
 .text {
-    font-size: 25px;
+    font-size: 27px;
     width: 40%;
     font-weight: bold;
     line-height: 1.1;
+    margin: 40px 65px 100px 0;
+}
+
+.special-card {
+    transform: translateY(-50%);
 }

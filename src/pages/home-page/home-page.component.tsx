@@ -10,6 +10,10 @@ import happyFaceIcon from '../../assets/happy_face_icon.png';
 import StripesDark from '../../assets/stripes-dark.png';
 import StripesBlue from '../../assets/stripes-blue.png'
 
+import infoIcon1 from '../../assets/info-icon1.png';
+import infoIcon2 from '../../assets/info-icon2.png';
+import infoIcon3 from '../../assets/info-icon3.png';
+
 
 export default function HomePage() {
     const buttonStyle = {
@@ -71,14 +75,13 @@ export default function HomePage() {
                 <img src={StripesDark} alt="stripes-dark" className="stripes-dark-right-top"/>
                 <div className="items">
                     <div className="text" >What we do to help our customers preserve more energy</div>
-                    <InfoCard />
-                    <InfoCard />
-                    <InfoCard />
+                    <InfoCard infoIcon={infoIcon1 }/>
+                    <InfoCard infoIcon={infoIcon2} style={"special-card"}/>
+                    <InfoCard infoIcon={infoIcon3} />
                     
 
                 </div>
                 <img src={StripesBlue} alt="stripes-blue" className="stripes-blue-left"/>
-                <img src={StripesDark} alt="stripes-dark" className="stripes-dark-right-bottom"/>
             </div>
         </div>
     )
