@@ -6,6 +6,7 @@
     padding: 70px 100px 100px 150px;
     display: flex;
     box-shadow: 0 0 20px rgba(0, 140, 255, 0.20);
+    justify-content: center;
 }
 
 .left-box {
@@ -29,6 +30,7 @@
     background-color: rgb(74,153,211, .1);
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     padding-bottom: 60px;
 }
 
@@ -42,8 +44,8 @@
 
 .small-box {
     text-align: center;
-    width: 33.33%;
-    padding: 0 1vw;
+    width: 20%;
+    padding: 0 3vw;
 }
 
 .small-icon {
@@ -56,6 +58,7 @@ b {
 
 .info-container {
     position: relative;
+    padding-bottom: 100px;
 }
 
 .stripes-dark-right-top {
@@ -74,19 +77,34 @@ b {
 
 .stripes-blue-left {
     position: absolute;
-    top: 70%;
+    top: calc(100% - 199px);
     z-index: 0;
+    left: 0%;
 }
 
 .items {
-    padding: 40px 290px;
+    padding: 40px 21vw;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    @media (min-width: 1853px) {
+        padding: 40px 30vw;
+    }
+    @media (min-width: 2687px) {
+        padding: 40px 36vw;
+    }
+    @media (min-width:3840px) {
+        padding: 40px 40vw;
+    }
+
+    @media (max-width:1279px) {
+        padding: 40px 8vw;
+    }
 }
 
 .text {
     font-size: 27px;
-    width: 40%;
+    width: 285px;
     font-weight: bold;
     line-height: 1.1;
     margin: 40px 65px 100px 0;
@@ -94,4 +112,12 @@ b {
 
 .special-card {
     transform: translateY(-50%);
+    margin: 67px 30px 0px 20px
+}
+
+@media (max-width:863px) {
+    .special-card {
+        transform: translateY(0);
+        margin: 67px 55px 0px 20px;
+    }
 }
