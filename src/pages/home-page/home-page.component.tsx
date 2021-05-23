@@ -2,6 +2,7 @@ import React from 'react';
 import {Button} from '@material-ui/core';
 import WeatherBanner from "../../components/weather-banner/weather-banner.component";
 import InfoCard from "../../components/info-card/info-card.component";
+import Footer from "../../components/footer/footer.component";
 import './home-page.styles.scss';
 import house from '../../assets/house.png';
 import profileIcon from '../../assets/profile_icon.png';
@@ -13,7 +14,6 @@ import StripesBlue from '../../assets/stripes-blue.png'
 import infoIcon1 from '../../assets/info-icon1.png';
 import infoIcon2 from '../../assets/info-icon2.png';
 import infoIcon3 from '../../assets/info-icon3.png';
-
 
 export default function HomePage() {
     const buttonStyle = {
@@ -37,7 +37,6 @@ export default function HomePage() {
                         Read More
                     </Button>
                 </div>
-                 
                 <img src={house} alt="house" className="house-img"/>
             </div>
 
@@ -78,11 +77,11 @@ export default function HomePage() {
                     <InfoCard infoIcon={infoIcon1 }/>
                     <InfoCard infoIcon={infoIcon2} style={"special-card"}/>
                     <InfoCard infoIcon={infoIcon3} />
-                    
-
                 </div>
                 <img src={StripesBlue} alt="stripes-blue" className="stripes-blue-left"/>
             </div>
+
+            <Footer />
         </div>
     )
 }
