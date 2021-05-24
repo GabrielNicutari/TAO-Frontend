@@ -5,13 +5,13 @@ import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
 import PhoneOutlinedIcon from '@material-ui/icons/PhoneOutlined';
 import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 import {Image} from "semantic-ui-react";
+import { Words  } from '../../Words';
 
 const ContactForm = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
-    const [error, setError] = useState('')
-
+    const [error, setError] = useState('');
     const handleSubmit = () => {
         if (emailIsValid(email)) {
             setError('');
@@ -19,28 +19,23 @@ const ContactForm = () => {
             console.log(contactFormData);
             // call the api here...
         } else {
-            setError('Please enter a valid email address.')
+            setError(Words.invalidEmailErrorMessage);
         }
     };
-
     const emailIsValid = (input: string) => {
         setEmail(input);
         const pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-        if (!pattern.test(input)) {
-            return false;
-        }
-        return true;
+        return pattern.test(input);
     };
-
     return (
         <div className="contact-form-card">
             <div className="contact-form-card-title-container">
-                <h2>Get in touch</h2>
+                <h2>{Words.contactFormTitle}</h2>
                 <div className="line-under-title"/>
             </div>
             <form onSubmit={handleSubmit}>
                 <div className="left-container">
-                    <h3>Leave us a message</h3>
+                    <h3>{Words.leaveUsMessage}</h3>
                     <TextField id="outlined-basic" value={name} label="Name" variant="outlined" onChange={e => setName(e.target.value)} fullWidth={true} /><br/><br/>
                     <TextField id="outlined-basic" value={email} label="Email" variant="outlined" onChange={e => setEmail(e.target.value)} fullWidth={true} />
                     {error === '' ? <div><br/></div> : <div>{error}<br/><br/></div> }
@@ -57,7 +52,7 @@ const ContactForm = () => {
                         onClick={handleSubmit}
                         variant="contained"
                         style={{width: '100%', background:'black', color: 'white', fontSize: '15px', }}>
-                        SEND
+                        {Words.send}
                     </Button>
                 </div>
             </form>

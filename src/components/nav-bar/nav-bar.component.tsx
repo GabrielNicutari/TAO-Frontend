@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button, Container, Menu } from 'semantic-ui-react';
+import {Words} from "../../Words";
 
 export default function NavBar() {
     return (
@@ -17,6 +18,9 @@ export default function NavBar() {
                 </Menu.Item>
                 <Menu.Item>
                     <Button as={NavLink} to='/contactForm' positive content='Contact Form' />
+                </Menu.Item>
+                <Menu.Item>
+                    <Button as={NavLink} to='/chooseLanguage' positive content='Language'  />
                 </Menu.Item>
             </Container>
         </Menu>

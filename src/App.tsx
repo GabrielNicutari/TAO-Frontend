@@ -6,6 +6,7 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 import HomePage from './pages/home-page/home-page.component';
 import { ToastContainer } from 'react-toastify';
 import ContactForm from "./components/contact-form/contact-form.component";
+import ChooseLanguage from "./components/choose-language/ChooseLanguage";
 
 function App() {
   const location = useLocation();
@@ -25,6 +26,7 @@ function App() {
                 <Route path='/activities/:id'  />
                 <Route key={location.key} path={['/createActivity', '/manage/:id']}  />
                 <Route path='/contactForm' component={ContactForm} />
+                <Route path='/chooseLanguage' component={ChooseLanguage} />
               </Switch>
             </Container>
           </>

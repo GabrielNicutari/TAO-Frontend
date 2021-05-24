@@ -72,7 +72,7 @@ h2{
 }
 .line-under-title{
   grid-area: 1 / 1 / 2 / 3;
-  width:130px;
+  width:100%;
   height:2px;
   margin:auto;
   background-color:black;
@@ -106,3 +106,5 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
