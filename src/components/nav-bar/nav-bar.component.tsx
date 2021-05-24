@@ -1,65 +1,10 @@
-import React from 'react';
-<<<<<<< HEAD
-import { NavLink } from 'react-router-dom';
-import {Button, Container, Image, Menu} from 'semantic-ui-react';
-import {Words} from "../../Words";
-import { useHistory } from "react-router-dom";
-
-export default function NavBar() {
-    const history = useHistory();
-    const translate = async (toLanguage: string) => {
-        alert(`Are you sure you want to change the language to ${toLanguage}?`);
-        await Words.translate(toLanguage);
-        history.push('/contactForm');
-    }
-    return (
-        <Menu inverted fixed='top'>
-            <Container>
-                <Menu.Item as={NavLink} exact to='/' header>
-                    <img src='/assets/logo.png' alt='logo' style={{ marginRight: '10px' }} />
-                    Reactivities
-                </Menu.Item>
-                <Menu.Item as={NavLink} to='/activities' name='Activities' />
-                <Menu.Item as={NavLink} to='/errors' name='Errors' />
-                <Menu.Item>
-                    <Button as={NavLink} to='/createActivity' positive content='Create Activity' />
-                </Menu.Item>
-                <Menu.Item>
-                    <Button as={NavLink} to='/contactForm' positive content='Contact Form' />
-                </Menu.Item>
-                <Menu.Item>
-                    <div className="flag-icon">
-                        <Image src={"/english_language.png"} onClick={() => translate('en')} />
-                    </div>
-                    <div className="flag-icon">
-                        <Image src={"/danish_language.png"} onClick={() => translate('da')} />
-                    </div>
-                    <div className="flag-icon">
-                        <Image src={"/romanian_language.png"} onClick={() => translate('ro')} />
-                    </div>
-                    <div className="flag-icon">
-                        <Image src={"/greek_language.png"} onClick={() => translate('el')} />
-                    </div>
-                    <div className="flag-icon">
-                        <Image src={"/french_language.png"} onClick={() => translate('fr')} />
-                    </div>
-                    <div className="flag-icon">
-                        <Image src={"/german_language.png"} onClick={() => translate('de')} />
-                    </div>
-                    <div className="flag-icon">
-                        <Image src={"/arabic_language.png"} onClick={() => translate('ar')} />
-                    </div>
-                    <div className="flag-icon">
-                        <Image src={"/chinese_language.png"} onClick={() => translate('zh')} />
-                    </div>
-                </Menu.Item>
-            </Container>
-        </Menu>
-=======
 import {Link} from 'react-router-dom';
 import './nav-bar.styles.scss'
 import {AppBar, Tab, Tabs} from "@material-ui/core";
 import Logo from '../../assets/enapter_dark.png';
+import {Words} from "../../Words";
+import { useHistory } from "react-router-dom";
+import React from "react";
 
 
 function a11yProps(index: number) {
@@ -85,6 +30,13 @@ export default function NavBar() {
         setValue(newValue);
     }
 
+    const history = useHistory();
+    const translate = async (toLanguage: string) => {
+        alert(`Are you sure you want to change the language to ${toLanguage}?`);
+        await Words.translate(toLanguage);
+        history.push('/contactForm');
+    }
+
     return (
         <AppBar className='nav'>
             <div className='nav-container'>
@@ -102,9 +54,35 @@ export default function NavBar() {
 
                         <LinkTab className='menu-item' label="Contact" to="/contact" {...a11yProps(3)} />
                     </Tabs>
+
+                    <div className='flags'>
+                        <div className="flag-icon">
+                            <img src={"/english_language.png"} onClick={() => translate('en')} alt='flag'/>
+                        </div>
+                        <div className="flag-icon">
+                            <img src={"/danish_language.png"} onClick={() => translate('da')} alt='flag' />
+                        </div>
+                        <div className="flag-icon">
+                            <img src={"/romanian_language.png"} onClick={() => translate('ro')} alt='flag'/>
+                        </div>
+                        <div className="flag-icon">
+                            <img src={"/greek_language.png"} onClick={() => translate('el')} alt='flag'/>
+                        </div>
+                        <div className="flag-icon">
+                            <img src={"/french_language.png"} onClick={() => translate('fr')} alt='flag'/>
+                        </div>
+                        <div className="flag-icon">
+                            <img src={"/german_language.png"} onClick={() => translate('de')} alt='flag'/>
+                        </div>
+                        <div className="flag-icon">
+                            <img src={"/arabic_language.png"} onClick={() => translate('ar')} alt='flag'/>
+                        </div>
+                        <div className="flag-icon">
+                            <img src={"/chinese_language.png"} onClick={() => translate('zh')} alt='flag'/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </AppBar>
->>>>>>> feature/home-page
     )
 }
