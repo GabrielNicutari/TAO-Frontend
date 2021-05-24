@@ -6,6 +6,7 @@ import PhoneOutlinedIcon from '@material-ui/icons/PhoneOutlined';
 import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 import {Image} from "semantic-ui-react";
 import './contact-form.styles.scss'
+import axios from "axios";
 
 const ContactForm = () => {
     const [name, setName] = useState('');
@@ -19,6 +20,8 @@ const ContactForm = () => {
             const contactFormData = {name, email, message}
             console.log(contactFormData);
             // call the api here...
+            axios.post("http://localhost:5001/ContactForm", contactFormData)
+                .then(res => console.log(res));
         } else {
             setError('Please enter a valid email address.')
         }

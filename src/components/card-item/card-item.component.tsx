@@ -24,8 +24,8 @@ var months = ['January','February','March','April','May','June','July','August',
 
 export default function CardItem(props: Props) {
     let now = new Date();
-    // now.setDate(now.getDate() + props.index); // it does the same thing as the line below 
-    now.setDate(now.getDate() + (props.index - 2 + (7 - now.getDay())) % 7);
+    now.setDate(now.getDate() + props.index); // it does the same thing as the line below
+    // now.setDate(now.getDate() + (props.index - 2 + (7 - now.getDay())) % 7);
 
     return (
         <div className='card'>

@@ -1,24 +1,66 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { Button, Container, Menu } from 'semantic-ui-react';
+import {Link, NavLink} from 'react-router-dom';
 import './nav-bar.styles.scss'
+import {AppBar, Button, Tab, Tabs, Box, Typography} from "@material-ui/core";
+
+function a11yProps(index: number) {
+    return {
+        id: `nav-tab-${index}`,
+        'aria-controls': `nav-tabpanel-${index}`,
+    };
+}
+
+function LinkTab(props: any) {
+    return (
+        <Tab
+            component={Link}
+            // onClick={(event: { preventDefault: () => void; }) => {
+            //     event.preventDefault();
+            // }}
+            {...props}
+        />
+    );
+}
 
 export default function NavBar() {
+    const [value, setValue] = React.useState(0);
+
+    const handleChange = (event: any, newValue: number) => {
+        setValue(newValue);
+    }
+
     return (
-        <Menu className='nav' fixed='top'>
-            <Container>
-                <Menu.Item className='menu-item' as={NavLink} exact to='/' header>
-                    <img src='/assets/logo.png' alt='logo' style={{ marginRight: '10px' }} />
-                    Home
-                </Menu.Item>
-                <Menu.Item className='menu-item' as={NavLink} to='/activities' name='Energy' />
-                <Menu.Item className='menu-item'>
-                    <Button as={NavLink} to='/spar' primary content='Sparenergi' />
-                </Menu.Item>
-                <Menu.Item className='menu-item'>
-                    <Button as={NavLink} to='/contact' primary content='Contact' />
-                </Menu.Item>
-            </Container>
-        </Menu>
+        <AppBar className='nav'>
+            <Tabs variant='fullWidth' value={value} onChange={handleChange} aria-label='tabs'>
+                {/*<Container className='nav-container' maxWidth="md">*/}
+
+                <LinkTab className='menu-item' label="Home" to="/" {...a11yProps(0)} />
+
+                <LinkTab className='menu-item' label="Energy" to="/energy" {...a11yProps(1)} />
+
+                <LinkTab className='menu-item' label="Sparenergi" to="/spar" {...a11yProps(2)} />
+
+                <LinkTab className='menu-item' label="Contact" to="/contact" {...a11yProps(3)} />
+
+                    {/*<NavLink to='/' className='menu-item'>*/}
+                    {/*    <Button>*/}
+
+                    {/*    </Button>*/}
+                    {/*</NavLink>*/}
+
+                    {/*<NavLink to='/energy' className='menu-item'>*/}
+                    {/*    <Button>Energy</Button>*/}
+                    {/*</NavLink>*/}
+
+
+                    {/*<NavLink to='/spar' className='menu-item'>*/}
+                    {/*    <Button>Sparenergy</Button>*/}
+                    {/*</NavLink>*/}
+
+                    {/*<NavLink to='/contact'className='menu-item'>*/}
+                    {/*    <Button>Contact</Button>*/}
+                    {/*</NavLink>*/}
+            </Tabs>
+        </AppBar>
     )
 }
