@@ -1,0 +1,26 @@
+.container {
+    width: 300px;
+    margin: 67px 55px 0px 20px;
+    box-shadow: 0px 9px 36px -2px rgba(74,153,211,0.22);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 25px 45px 70px 45px;
+    min-width: 200px;
+    max-width: 350px;
+}
+
+.center-img {
+    text-align: center;
+    padding-bottom:30px;
+}
+
+.info-img {
+    width: 150px;
+}
+
+.info-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}

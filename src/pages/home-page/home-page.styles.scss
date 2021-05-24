@@ -1,0 +1,127 @@
+.home-page-container {
+    background: white;
+}
+.title-banner {
+    background: linear-gradient(0deg, rgba(74,153,211,0) 30%, rgba(74,153,211,0.1839622641509434) 100%);
+    padding: 70px 100px 100px 150px;
+    display: flex;
+    box-shadow: 0 0 20px rgba(0, 140, 255, 0.20);
+    justify-content: center;
+}
+
+.left-box {
+    margin-top: 50px;
+    margin-right: 50px;
+}
+
+.title-parag {
+    color: #28CDCD;
+    font-size: 50px;
+    margin: 20px 0;
+    font-weight: bold;
+    line-height: 50px;
+}
+
+.house-img {
+    width: 350px;
+}
+
+.small-banner {
+    background-color: rgb(74,153,211, .1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 60px;
+}
+
+.small-title {
+    font-size: 35px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    margin: 55px 0;
+}
+
+.small-box {
+    text-align: center;
+    width: 20%;
+    padding: 0 3vw;
+}
+
+.small-icon {
+    width: 50px;
+}
+
+b {
+    line-height: 2;
+}
+
+.info-container {
+    position: relative;
+    padding-bottom: 100px;
+}
+
+.stripes-dark-right-top {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.stripes-dark-right-bottom {
+    position: absolute;
+    right: 0;
+    top: 70%;
+    z-index: 0;
+}
+
+.stripes-blue-left {
+    position: absolute;
+    top: calc(100% - 199px);
+    z-index: 0;
+    left: 0%;
+}
+
+.items {
+    padding: 40px 21vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @media (min-width: 1853px) {
+        padding: 40px 30vw;
+    }
+    @media (min-width: 2687px) {
+        padding: 40px 36vw;
+    }
+    @media (min-width:3840px) {
+        padding: 40px 40vw;
+    }
+
+    @media (max-width:1279px) {
+        padding: 40px 8vw;
+    }
+}
+
+.text {
+    font-size: 27px;
+    width: 285px;
+    font-weight: bold;
+    line-height: 1.1;
+    margin: 40px 65px 100px 0;
+}
+
+.special-card {
+    transform: translateY(-50%);
+    margin: 67px 30px 0px 20px
+}
+
+@media (max-width:863px) {
+    .special-card {
+        transform: translateY(0);
+        margin: 67px 55px 0px 20px;
+    }
+}
+
+.button {
+    text-transform: capitalize!important;
+}

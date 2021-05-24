@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap');
+
+.card {
+  height: 350px;
+  width: 200px;
+  background: linear-gradient(rgba(0, 42, 57, 1), rgba(40, 205, 205, 1));
+  box-shadow: -3.77069px 7.54137px 30.1655px 2.26241px rgba(19, 35, 78, 0.2);
+  border-radius: 10px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-family: 'Overpass', sans-serif;
+  margin-bottom: 20px;
+
+  .vector-right {
+    position: absolute;
+    left: 40px;
+    top: -20px;
+  }
+
+  .vector-left {
+    position: absolute;
+    height: 120px;
+    left: -10px;
+    top: 60px;
+  }
+
+  .day {
+    margin-top: 20px;
+  }
+
+  .weather-info {
+    margin-top: 10px;
+    width: 85%;
+    height: 45%;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 13.9839px;
+    border: 1.4px solid rgba(191, 191, 191, 0.7);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    @mixin text() {
+      text-shadow: 1.3983862400054932px -2.09757924079895px 4.1951584815979px rgba(0, 0, 0, 0.25), -4.1951584815979px 2.7967724800109863px 2.7967724800109863px rgba(0, 0, 0, 0.1);
+    }
+
+    .date {
+      font-size: 10px;
+      @include text();
+    }
+
+    .temperature {
+      color: #FFFFFF;
+      font-size: 30px;
+      line-height: 35px;
+      @include text();
+    }
+
+    .description {
+      @include text();
+      text-transform: capitalize;
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+      @include text();
+
+      .wind {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 7px;
+      }
+
+      .humidity {
+        display: flex;
+        width: 100%;
+      }
+
+      .separator {
+        position: absolute;
+        left: 50%;
+      }
+
+      .detail-category {
+        position: absolute;
+        left: 28%;
+      }
+
+      .detail-value {
+        position: absolute;
+        left: 57%;
+      }
+    }
+  }
+}
