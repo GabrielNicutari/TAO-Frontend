@@ -5,11 +5,13 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 import HomePage from './pages/home-page/home-page.component';
 import ContactForm from "./components/contact-form/contact-form.component";
 import './index.scss';
+import Footer from "./components/footer/footer.component";
 
 function App() {
   const location = useLocation();
   const divStyle = {
-    marginTop: '3.7em'
+    marginTop: '3.7em',
+    minHeight: 'calc(100vh - 23vh)'
   };
 
   return (
@@ -24,7 +26,8 @@ function App() {
               <Route path='/contact' component={ContactForm} />
             </Switch>
         </div>
-          
+
+        <Footer />
     </>
   );
 }

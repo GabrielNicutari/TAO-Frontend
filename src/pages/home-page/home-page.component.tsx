@@ -30,7 +30,8 @@ export default function HomePage() {
                 <div className="left-box">
                     <div className="title-parag">NEW ENERGY SOLUTION FOR YOU</div>
                     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sed vulputate vitae velit dictum cursus amet. Turpis donec ut velit quis. Cursus commodo, eget urna, sapien amet.</div>
-                    <Button 
+                    <Button
+                        className='button'
                         style={buttonStyle} 
                         variant="contained"
                         href="#">
@@ -80,8 +81,6 @@ export default function HomePage() {
                 </div>
                 <img src={StripesBlue} alt="stripes-blue" className="stripes-blue-left"/>
             </div>
-
-            <Footer />
         </div>
     )
 }

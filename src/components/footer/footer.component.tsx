@@ -7,7 +7,7 @@ import { FaInstagram} from 'react-icons/fa';
 import { FaFacebook } from 'react-icons/fa';
 import { FaTwitter } from 'react-icons/fa';
 
-export default function InfoCard() {
+export default function Footer() {
     const iconStyle = {
         height: '30px',
         width: '28px',
@@ -36,7 +36,7 @@ export default function InfoCard() {
                 </div>
 
                 <div className="bottom-box">
-                    Copyright © 2020. All rights reserved.
+                    Copyright © 2021. All rights reserved.
                     <div className="social-icons">
                         <a href="#"><FaYoutube style={iconStyle}/></a> 
                         <a href="#"><FaInstagram style={iconStyle}/></a>
