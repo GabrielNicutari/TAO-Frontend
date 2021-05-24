@@ -3,18 +3,17 @@ import './weather-banner.styles.scss';
 import CardList from "../card-list/card-list.component";
 import StripesDark from '../../assets/stripes-dark.png';
 import StripesBlue from '../../assets/stripes-blue.png';
+import { Words } from "../../Words";
 
 export default function WeatherBanner() {
     return (
         <div id='container'>
             <img className='stripe-right' src={StripesDark} alt='stripes'/>
 
-            <h1 className='title'>Weather Forecast</h1>
+            <h1 className='title'>{Words.weatherForecastTitle}</h1>
 
             <p className='info'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Amet sed vulputate vitae velit dictum cursus amet.
-                Turpis donec ut velit quis. Cursus commodo, eget urna, sapien amet.
+                {Words.weatherForecastDescription}
             </p>
 
             <CardList />

@@ -14,6 +14,7 @@ import StripesBlue from '../../assets/stripes-blue.png'
 import infoIcon1 from '../../assets/info-icon1.png';
 import infoIcon2 from '../../assets/info-icon2.png';
 import infoIcon3 from '../../assets/info-icon3.png';
+import {Words} from "../../Words";
 
 export default function HomePage() {
     const buttonStyle = {
@@ -28,14 +29,14 @@ export default function HomePage() {
         <div className="home-page-container">
             <div className="title-banner">
                 <div className="left-box">
-                    <div className="title-parag">NEW ENERGY SOLUTION FOR YOU</div>
-                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sed vulputate vitae velit dictum cursus amet. Turpis donec ut velit quis. Cursus commodo, eget urna, sapien amet.</div>
+                    <div className="title-parag">{Words.homepageTitle}</div>
+                    <div>{Words.homepageSubtitle}</div>
                     <Button
                         className='button'
                         style={buttonStyle} 
                         variant="contained"
                         href="#">
-                        Read More
+                        {Words.readMore}
                     </Button>
                 </div>
                 <img src={house} alt="house" className="house-img"/>
@@ -44,37 +45,37 @@ export default function HomePage() {
             <WeatherBanner />
 
             <div className="small-banner">
-                <div className="small-title">How It Works</div>
+                <div className="small-title">{Words.services}</div>
 
                 <div className="small-box">
                     <div>
                         <img src={profileIcon} alt="profile-icon" className="small-icon"/>
                     </div>
-                    <b>Lorem</b> 
-                    <div>Lorem ipsum dolor sit amet,consecteteu.</div>
+                    <b>{Words.service1Title}</b>
+                    <div>{Words.service1Description}</div>
                 </div>
 
                 <div className="small-box">
                     <div>
                         <img src={shieldIcon} alt="profile-icon" className="small-icon"/>
                     </div>
-                    <b>Lorem</b> 
-                    <div>Lorem ipsum dolor sit amet,consecteteu.</div>
+                    <b>{Words.service2Title}</b>
+                    <div>{Words.service2Description}</div>
                 </div>
 
                 <div className="small-box">
                     <div>
                         <img src={happyFaceIcon} alt="profile-icon" className="small-icon"/>
                     </div>
-                    <b className="mini-title">Lorem</b> 
-                    <div>Lorem ipsum dolor sit amet,consectetasdasd asd asdas dasd asd asd asdas dasd ad asda a asd as aa da sdasdas da sdasd asd asasd asasd asdasda sasdeu.</div>
+                    <b className="mini-title">{Words.service3Title}</b>
+                    <div>{Words.service3Description}</div>
                 </div>
             </div>
             
             <div className="info-container">
                 <img src={StripesDark} alt="stripes-dark" className="stripes-dark-right-top"/>
                 <div className="items">
-                    <div className="text" >What we do to help our customers preserve more energy</div>
+                    <div className="text">{Words.infoTitle}</div>
                     <InfoCard infoIcon={infoIcon1 }/>
                     <InfoCard infoIcon={infoIcon2} style={"special-card"}/>
                     <InfoCard infoIcon={infoIcon3} />

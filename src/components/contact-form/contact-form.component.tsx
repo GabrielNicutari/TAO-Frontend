@@ -40,13 +40,13 @@ const ContactForm = () => {
             <form onSubmit={handleSubmit}>
                 <div className="left-container">
                     <h3>{Words.leaveUsMessage}</h3>
-                    <TextField id="outlined-basic" value={name} label="Name" variant="outlined" onChange={e => setName(e.target.value)} fullWidth={true} /><br/><br/>
-                    <TextField id="outlined-basic" value={email} label="Email" variant="outlined" onChange={e => setEmail(e.target.value)} fullWidth={true} />
+                    <TextField id="outlined-basic" value={name} label={Words.nameForm} variant="outlined" onChange={e => setName(e.target.value)} fullWidth={true} /><br/><br/>
+                    <TextField id="outlined-basic" value={email} label={Words.email} variant="outlined" onChange={e => setEmail(e.target.value)} fullWidth={true} />
                     {error === '' ? <div><br/></div> : <div>{error}<br/><br/></div> }
                     <TextField
                         id="outlined-multiline-static"
                         value={message}
-                        label="Message"
+                        label={Words.message}
                         variant="outlined"
                         onChange={e => setMessage(e.target.value)}
                         fullWidth={true}

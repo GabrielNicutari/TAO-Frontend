@@ -6,7 +6,6 @@ import {Words} from "../../Words";
 import { useHistory } from "react-router-dom";
 import React from "react";
 
-
 function a11yProps(index: number) {
     return {
         id: `nav-tab-${index}`,
@@ -34,7 +33,7 @@ export default function NavBar() {
     const translate = async (toLanguage: string) => {
         alert(`Are you sure you want to change the language to ${toLanguage}?`);
         await Words.translate(toLanguage);
-        history.push('/contactForm');
+        history.push('/');
     }
 
     return (
@@ -46,13 +45,13 @@ export default function NavBar() {
 
                 <div className='tabs'>
                     <Tabs variant='fullWidth' value={value} onChange={handleChange} aria-label='tabs'>
-                        <LinkTab className='menu-item' label="Home" to="/" {...a11yProps(0)} />
+                        <LinkTab className='menu-item' label={Words.home} to="/" {...a11yProps(0)} />
 
-                        <LinkTab className='menu-item' label="Energy" to="/energy" {...a11yProps(1)} />
+                        <LinkTab className='menu-item' label={Words.energy} to="/energy" {...a11yProps(1)} />
 
-                        <LinkTab className='menu-item' label="Sparenergi" to="/spar" {...a11yProps(2)} />
+                        <LinkTab className='menu-item' label={Words.saveEnergy} to="/spar" {...a11yProps(2)} />
 
-                        <LinkTab className='menu-item' label="Contact" to="/contact" {...a11yProps(3)} />
+                        <LinkTab className='menu-item' label={Words.contact} to="/contact" {...a11yProps(3)} />
                     </Tabs>
 
                     <div className='flags'>
@@ -63,12 +62,6 @@ export default function NavBar() {
                             <img src={"/danish_language.png"} onClick={() => translate('da')} alt='flag' />
                         </div>
                         <div className="flag-icon">
-                            <img src={"/romanian_language.png"} onClick={() => translate('ro')} alt='flag'/>
-                        </div>
-                        <div className="flag-icon">
-                            <img src={"/greek_language.png"} onClick={() => translate('el')} alt='flag'/>
-                        </div>
-                        <div className="flag-icon">
                             <img src={"/french_language.png"} onClick={() => translate('fr')} alt='flag'/>
                         </div>
                         <div className="flag-icon">
@@ -76,9 +69,6 @@ export default function NavBar() {
                         </div>
                         <div className="flag-icon">
                             <img src={"/arabic_language.png"} onClick={() => translate('ar')} alt='flag'/>
-                        </div>
-                        <div className="flag-icon">
-                            <img src={"/chinese_language.png"} onClick={() => translate('zh')} alt='flag'/>
                         </div>
                     </div>
                 </div>
