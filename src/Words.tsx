@@ -1,5 +1,5 @@
 import axios from "axios";
-import {WordsConstants} from "./WordsConstants";
+import { WordsConstants } from "./WordsConstants";
 
 export class Words {
     public static contactFormTitle: string = WordsConstants.CONTACT_FORM_TITLE;

@@ -49,7 +49,7 @@ export default function NavBar() {
 
                         <LinkTab className='menu-item' label={Words.energy} to="/energy" {...a11yProps(1)} />
 
-                        <LinkTab className='menu-item' label={Words.saveEnergy} to="/spar" {...a11yProps(2)} />
+                        <LinkTab className='menu-item' label={Words.saveEnergy} to="/saveEnergy" {...a11yProps(2)} />
 
                         <LinkTab className='menu-item' label={Words.contact} to="/contact" {...a11yProps(3)} />
                     </Tabs>
