@@ -1,10 +1,12 @@
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './nav-bar.styles.scss'
-import {AppBar, Tab, Tabs} from "@material-ui/core";
+import { AppBar, Tab, Tabs } from "@material-ui/core";
 import Logo from '../../assets/enapter_dark.png';
-import {Words} from "../../Words";
+import { Words } from "../../Words";
 import { useHistory } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
+import FormControl from '@material-ui/core/FormControl';
+import NativeSelect from '@material-ui/core/NativeSelect';
 
 function a11yProps(index: number) {
     return {
@@ -23,18 +25,25 @@ function LinkTab(props: any) {
 }
 
 export default function NavBar() {
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = useState(0);
+    const [language, setLanguage] = useState('en');
 
     const handleChange = (event: any, newValue: number) => {
         setValue(newValue);
     }
 
-    const history = useHistory();
     const translate = async (toLanguage: string) => {
         alert(`Are you sure you want to change the language to ${toLanguage}?`);
         await Words.translate(toLanguage);
         history.push('/');
     }
+
+    const onChangeLanguage = (event: any) => {
+        setLanguage(event.target.value);
+        translate(event.target.value);
+    };
+
+    const history = useHistory();
 
     return (
         <AppBar className='nav'>
@@ -54,23 +63,19 @@ export default function NavBar() {
                         <LinkTab className='menu-item' label={Words.contact} to="/contact" {...a11yProps(3)} />
                     </Tabs>
 
-                    <div className='flags'>
-                        <div className="flag-icon">
-                            <img src={"/english_language.png"} onClick={() => translate('en')} alt='flag'/>
-                        </div>
-                        <div className="flag-icon">
-                            <img src={"/danish_language.png"} onClick={() => translate('da')} alt='flag' />
-                        </div>
-                        <div className="flag-icon">
-                            <img src={"/french_language.png"} onClick={() => translate('fr')} alt='flag'/>
-                        </div>
-                        <div className="flag-icon">
-                            <img src={"/german_language.png"} onClick={() => translate('de')} alt='flag'/>
-                        </div>
-                        <div className="flag-icon">
-                            <img src={"/arabic_language.png"} onClick={() => translate('ar')} alt='flag'/>
-                        </div>
-                    </div>
+                    <FormControl style={{margin:'auto',marginLeft:'10px'}}>
+                        <NativeSelect
+                            value={language}
+                            onChange={onChangeLanguage}
+                            name="Language"
+                        >
+                            <option value="en">English</option>
+                            <option value="da">Dansk</option>
+                            <option value="fr">Français</option>
+                            <option value="de">Deutsch</option>
+                            <option value="ar">عربي</option>
+                        </NativeSelect>
+                    </FormControl>
                 </div>
             </div>
         </AppBar>
