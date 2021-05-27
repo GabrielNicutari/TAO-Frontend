@@ -28,4 +28,7 @@ export abstract class WordsConstants {
     static readonly NAME = "Name";
     static readonly EMAIL = "Email";
     static readonly MESSAGE = "Message";
+    static readonly PASSWORD = "Password";
+    static readonly LOGIN_FORM_TITLE = "Log in to your TAO account!";
+    static readonly LOGIN = "Login";
 }

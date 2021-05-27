@@ -1,5 +1,5 @@
 import axios from "axios";
-import { WordsConstants } from "./WordsConstants";
+import {WordsConstants} from "./WordsConstants";
 
 export class Words {
     public static contactFormTitle: string = WordsConstants.CONTACT_FORM_TITLE;
@@ -27,6 +27,9 @@ export class Words {
     public static nameForm = WordsConstants.NAME;
     public static email = WordsConstants.EMAIL;
     public static message = WordsConstants.MESSAGE;
+    public static password = WordsConstants.PASSWORD;
+    public static loginFormTitle = WordsConstants.LOGIN_FORM_TITLE;
+    public static login = WordsConstants.LOGIN;
 
     static async translate(toLanguage: string): Promise<void> {
         await axios.post("http://localhost:5001/Translation", { words: [
@@ -55,6 +58,9 @@ export class Words {
             WordsConstants.NAME,
             WordsConstants.EMAIL,
             WordsConstants.MESSAGE,
+            WordsConstants.PASSWORD,
+            WordsConstants.LOGIN_FORM_TITLE,
+            WordsConstants.LOGIN
             ], toLanguage})
             .then(response => {
                 console.log(response.data);
@@ -83,6 +89,9 @@ export class Words {
                 this.nameForm = response.data[22];
                 this.email = response.data[23];
                 this.message = response.data[24];
+                this.password = response.data[25];
+                this.loginFormTitle = response.data[26];
+                this.login = response.data[27];
             })
     }
 }

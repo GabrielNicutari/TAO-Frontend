@@ -7,6 +7,7 @@ import ContactForm from "./components/contact-form/contact-form.component";
 import './index.scss';
 import Footer from "./components/footer/footer.component";
 import SaveEnergyIframe from "./components/save-energy-iframe/save-energy-iframe";
+import {LoginForm} from "./components/login-form/login-form.component";
 
 function App() {
   const location = useLocation();
@@ -26,6 +27,7 @@ function App() {
               <Route key={location.key} path={['/createActivity', '/manage/:id']}  />
               <Route path='/saveEnergy' component={SaveEnergyIframe} />
               <Route path='/contact' component={ContactForm} />
+              <Route path='/login' component={LoginForm} />
             </Switch>
         </div>
 

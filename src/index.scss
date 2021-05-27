@@ -101,3 +101,14 @@ code {
   cursor: pointer;
   margin-right:5px;
 }
+
+// text-field overrides
+
+.MuiFormLabel-root.Mui-focused {
+  color: #28CDCD!important;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #28CDCD!important;
+}
+

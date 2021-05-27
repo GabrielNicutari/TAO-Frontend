@@ -1,0 +1,27 @@
+.login-form {
+  height: 350px;
+  width: 500px;
+  margin: 90px auto auto;
+  box-shadow: rgb(0 0 0 / 16%) 0px 10px 36px 0px, rgb(0 0 0 / 6%) 0px 0px 0px 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .form-content {
+    padding: 25px;
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+
+    .text-field {
+      margin-bottom: 20px;
+    }
+
+    .button-login {
+      width: 100px;
+      height: 35px;
+      margin: auto;
+    }
+  }
+
+}
