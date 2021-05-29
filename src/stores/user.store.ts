@@ -21,7 +21,7 @@ export default class UserStore {
             // @ts-ignore
             store.commonStore.setToken(user.token);
             runInAction(() => this.user = user);
-            history.push('/');
+            history.push('/energy');
             this.user = user;
             console.log(user);
         } catch (error) {
@@ -34,5 +34,14 @@ export default class UserStore {
         window.localStorage.removeItem('jwt');
         this.user = null;
         history.push('/');
+    }
+
+    getUser = async () => {
+        try {
+            const user = await agent.Account.current();
+            runInAction(() => this.user = user);
+        } catch (error) {
+            console.log(error);
+        }
     }
 }

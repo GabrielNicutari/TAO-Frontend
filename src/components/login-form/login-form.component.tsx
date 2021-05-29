@@ -33,7 +33,7 @@ export default observer(function LoginForm() {
                 <div className="line-under-title"/>
             </div>
 
-            <form className='form-content' method='post' onSubmit={handleSubmit} autoComplete='off'>
+            <form className='form-content' method='post' onSubmit={handleSubmit}>
                 <TextField
                     id="outlined-basic"
                     className='text-field'

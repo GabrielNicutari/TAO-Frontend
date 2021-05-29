@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import React, { useState } from "react";
 import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
+import {useStore} from "../../stores/store";
 
 function a11yProps(index: number) {
     return {
@@ -27,6 +28,8 @@ function LinkTab(props: any) {
 export default function NavBar() {
     const [value, setValue] = useState(0);
     const [language, setLanguage] = useState('en');
+
+    const {userStore: {user, logout}} = useStore();
 
     const handleChange = (event: any, newValue: number) => {
         setValue(newValue);
@@ -76,7 +79,13 @@ export default function NavBar() {
                             <option value="ar">عربي</option>
                         </NativeSelect>
                     </FormControl>
+
+                    <div style={{margin:'auto',marginLeft:'10px'}}>
+                        <button onClick={logout} >Logout</button>
+                    </div>
                 </div>
+
+
             </div>
         </AppBar>
     )
