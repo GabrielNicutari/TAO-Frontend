@@ -4,25 +4,36 @@ import TextField from "@material-ui/core/TextField";
 import './login-form.styles.scss'
 import {Button} from "@material-ui/core";
 import {useState} from "react";
+import {useStore} from "../../stores/store";
+import {observer} from "mobx-react-lite";
+import {UserFormValues} from "../../models/user";
+import {ErrorMessage} from "formik";
+import {Label} from "semantic-ui-react";
 
-export function LoginForm() {
+export default observer(function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
     console.log(email, password);
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        console.log("worked");
+        let creds: UserFormValues = {email, password};
+        userStore.login(creds)
+            .then(() => setError(''))
+            .catch(() => setError('Invalid email or password'));
     }
 
+    const { userStore } = useStore();
+
     return (
-        <div className='login-form' onSubmit={handleSubmit}>
+        <div className='login-form' >
             <div className="contact-form-card-title-container">
                 <h2>{Words.loginFormTitle}</h2>
                 <div className="line-under-title"/>
             </div>
 
-            <form className='form-content' method='post'>
+            <form className='form-content' method='post' onSubmit={handleSubmit} autoComplete='off'>
                 <TextField
                     id="outlined-basic"
                     className='text-field'
@@ -44,8 +55,10 @@ export function LoginForm() {
                     fullWidth={true}
                 />
 
+                <label style={{color: "red"}}>{error}</label>
+
                 <Button className='button button-login' variant='contained' color='primary' type='submit'>{Words.login}</Button>
             </form>
         </div>
     );
-};
+});
