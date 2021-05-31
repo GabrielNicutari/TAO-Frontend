@@ -5,8 +5,7 @@ import Logo from '../../assets/enapter_dark.png';
 import { Words } from "../../Words";
 import { useHistory } from "react-router-dom";
 import React, { useState } from "react";
-import FormControl from '@material-ui/core/FormControl';
-import NativeSelect from '@material-ui/core/NativeSelect';
+import Select from 'react-select';
 
 function a11yProps(index: number) {
     return {
@@ -39,11 +38,39 @@ export default function NavBar() {
     }
 
     const onChangeLanguage = (event: any) => {
-        setLanguage(event.target.value);
-        translate(event.target.value);
+        setLanguage(event.value);
+        translate(event.value);
     };
 
     const history = useHistory();
+
+    const options = [
+        { value: 'en', label:
+                <div>
+                    <img src={"/english_language.png"} className="language-icon" />
+                    <span>English</span>
+                </div> },
+        { value: 'da', label:
+                <div>
+                    <img src={"/danish_language.png"} className="language-icon" />
+                    <span>Dansk</span>
+                </div> },
+        { value: 'de', label:
+                <div>
+                    <img src={"/german_language.png"} className="language-icon" />
+                    <span>Deutsch</span>
+                </div> },
+        { value: 'fr', label:
+                <div>
+                    <img src={"/french_language.png"} className="language-icon" />
+                    <span>Français</span>
+                </div> },
+        { value: 'ar', label:
+                <div>
+                    <img src={"/arabic_language.png"} className="language-icon" />
+                    <span>عربي</span>
+                </div> },
+    ];
 
     return (
         <AppBar className='nav'>
@@ -62,20 +89,12 @@ export default function NavBar() {
 
                         <LinkTab className='menu-item' label={Words.contact} to="/contact" {...a11yProps(3)} />
                     </Tabs>
-
-                    <FormControl style={{margin:'auto',marginLeft:'10px'}}>
-                        <NativeSelect
-                            value={language}
+                    <div className="language-tab" >
+                        <Select
+                            placeholder='Language'
                             onChange={onChangeLanguage}
-                            name="Language"
-                        >
-                            <option value="en">English</option>
-                            <option value="da">Dansk</option>
-                            <option value="fr">Français</option>
-                            <option value="de">Deutsch</option>
-                            <option value="ar">عربي</option>
-                        </NativeSelect>
-                    </FormControl>
+                            options={options} />
+                    </div>
                 </div>
             </div>
         </AppBar>
