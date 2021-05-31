@@ -25,49 +25,43 @@ function LinkTab(props: any) {
 
 export default function NavBar() {
     const [value, setValue] = useState(0);
-    const [language, setLanguage] = useState('en');
 
     const handleChange = (event: any, newValue: number) => {
         setValue(newValue);
     }
 
-    const translate = async (toLanguage: string) => {
-        alert(`Are you sure you want to change the language to ${toLanguage}?`);
-        await Words.translate(toLanguage);
-        history.push('/');
-    }
-
-    const onChangeLanguage = (event: any) => {
-        setLanguage(event.value);
-        translate(event.value);
-    };
-
     const history = useHistory();
+
+    const onChangeLanguage = async (event: any) => {
+        alert(`Are you sure you want to change the language to ${event.value}?`);
+        await Words.translate(event.value);
+        history.push('/');
+    };
 
     const options = [
         { value: 'en', label:
                 <div>
-                    <img src={"/english_language.png"} className="language-icon" />
+                    <img src={"/english_language.png"} className="language-icon" alt={'flag'} />
                     <span>English</span>
                 </div> },
         { value: 'da', label:
                 <div>
-                    <img src={"/danish_language.png"} className="language-icon" />
+                    <img src={"/danish_language.png"} className="language-icon" alt={'flag'} />
                     <span>Dansk</span>
                 </div> },
         { value: 'de', label:
                 <div>
-                    <img src={"/german_language.png"} className="language-icon" />
+                    <img src={"/german_language.png"} className="language-icon" alt={'flag'} />
                     <span>Deutsch</span>
                 </div> },
         { value: 'fr', label:
                 <div>
-                    <img src={"/french_language.png"} className="language-icon" />
+                    <img src={"/french_language.png"} className="language-icon" alt={'flag'} />
                     <span>Français</span>
                 </div> },
         { value: 'ar', label:
                 <div>
-                    <img src={"/arabic_language.png"} className="language-icon" />
+                    <img src={"/arabic_language.png"} className="language-icon" alt={'flag'} />
                     <span>عربي</span>
                 </div> },
     ];
