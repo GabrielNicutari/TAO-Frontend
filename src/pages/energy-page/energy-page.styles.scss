@@ -7,11 +7,11 @@
   grid-template-columns: 60% 40%;
 }
 .left-energy-container{
-  padding: 5px;
+  padding: 20px;
   grid-area: 1 / 1 / 2 / 2;
 }
 .right-energy-container{
-  padding: 5px;
+  padding: 20px;
   grid-area: 1 / 2 / 2 / 3;
 }
 .energy-consumption-past-days{
@@ -21,7 +21,6 @@
 .energy-consumption-today{
   margin-top: 2rem;
   height: 10rem;
-  background-color: #28CDCD;
 }
 .where-money-goes{
   height: 10rem;
