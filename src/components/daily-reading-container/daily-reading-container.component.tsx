@@ -1,44 +1,57 @@
 import './daily-reading-container.styles.scss';
 import {useState} from "react";
-import {FaThermometerEmpty, FaThermometerThreeQuarters, ImPower, ImPowerCord, IoIosWater} from "react-icons/all";
+import {
+    FaThermometerEmpty,
+    FaThermometerThreeQuarters,
+    ImPower,
+    ImPowerCord,
+    IoIosWater,
+    IoTimer, RiWindyLine
+} from "react-icons/all";
 
 interface DailyReadingContainerProps{
     name: string,
-    value: number,
+    value: any,
     measureUnit: string,
 }
 
 function DailyReadingContainer(props: DailyReadingContainerProps) {
-    const [imageUrl, setImageUrl] = useState(props.name)
-
     return (
         <div className="daily-reading-container">
             {/* Daily Reading Icon */}
-            <div className={"icon"}>
+            <div className="daily-reading-icon">
                 {(() => {
-                    if (imageUrl === "Energy") {
+                    if (props.name === "Energy") {
                         return (
-                            <ImPower />
+                            <ImPower/>
                         )
-                    } else if (imageUrl === "Volume") {
+                    } else if (props.name === "Volume") {
                         return (
-                            <IoIosWater />
+                            <IoIosWater/>
                         )
-                    } else if (imageUrl === "Power") {
+                    } else if (props.name === "Hour Counter") {
                         return (
-                            <ImPowerCord />
+                            <IoTimer/>
                         )
-                    } else if (imageUrl === "Temperature Forward") {
+                    } else if (props.name === "Power") {
+                        return (
+                            <ImPowerCord/>
+                        )
+                    } else if (props.name === "Flow") {
+                      return (
+                          <RiWindyLine />
+                      )
+                    } else if (props.name === "Temperature Forward") {
                         return (
                             <FaThermometerThreeQuarters />
                         )
-                    } else if (imageUrl === "Temperature Return") {
+                    } else if (props.name === "Temperature Return") {
                         return (
                             <FaThermometerEmpty />
                         )
                     } else {
                         return (
-                            <img src={"/english_language.png"} alt={"icon"}/>
+                            <ImPower/>
                         )
                     }
                 })()}
