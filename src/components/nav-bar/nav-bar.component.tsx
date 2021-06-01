@@ -5,6 +5,9 @@ import Logo from '../../assets/enapter_dark.png';
 import { Words } from "../../Words";
 import { useHistory } from "react-router-dom";
 import React, { useState } from "react";
+import FormControl from '@material-ui/core/FormControl';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import {useStore} from "../../stores/store";
 import Select from 'react-select';
 
 function a11yProps(index: number) {
@@ -25,6 +28,8 @@ function LinkTab(props: any) {
 
 export default function NavBar() {
     const [value, setValue] = useState(0);
+
+    const {userStore: {user, logout}} = useStore();
 
     const handleChange = (event: any, newValue: number) => {
         setValue(newValue);
@@ -77,7 +82,7 @@ export default function NavBar() {
                     <Tabs variant='fullWidth' value={value} onChange={handleChange} aria-label='tabs'>
                         <LinkTab className='menu-item' label={Words.home} to="/" {...a11yProps(0)} />
 
-                        <LinkTab className='menu-item' label={Words.energy} to="/energy" {...a11yProps(1)} />
+                        <LinkTab className='menu-item' label={Words.energy} to="/login" {...a11yProps(1)} />
 
                         <LinkTab className='menu-item' label={Words.saveEnergy} to="/saveEnergy" {...a11yProps(2)} />
 
@@ -89,7 +94,12 @@ export default function NavBar() {
                             onChange={onChangeLanguage}
                             options={options} />
                     </div>
+                    <div style={{margin:'auto',marginLeft:'10px'}}>
+                        <button onClick={logout} >Logout</button>
+                    </div>
                 </div>
+
+
             </div>
         </AppBar>
     )

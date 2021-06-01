@@ -8,14 +8,17 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Router } from 'react-router-dom';
+import { store, StoreContext } from "./stores/store";
 import {createBrowserHistory} from 'history';
 
 export const history = createBrowserHistory();
 
 ReactDOM.render(
-    <Router history={history}>
-      <App />
-    </Router>,
+    <StoreContext.Provider value={store}>
+        <Router history={history}>
+            <App />
+        </Router>
+    </StoreContext.Provider>,
   document.getElementById('root')
 );
 
