@@ -1,5 +1,6 @@
 import './daily-reading-container.styles.scss';
 import {useState} from "react";
+import {FaThermometerEmpty, FaThermometerThreeQuarters, ImPower, ImPowerCord, IoIosWater} from "react-icons/all";
 
 interface DailyReadingContainerProps{
     name: string,
@@ -17,23 +18,23 @@ function DailyReadingContainer(props: DailyReadingContainerProps) {
                 {(() => {
                     if (imageUrl === "Energy") {
                         return (
-                            <img src={"/english_language.png"} alt={"icon"}/>
+                            <ImPower />
                         )
                     } else if (imageUrl === "Volume") {
                         return (
-                            <img src={"/german_language.png"} alt={"icon"}/>
+                            <IoIosWater />
                         )
                     } else if (imageUrl === "Power") {
                         return (
-                            <img src={"/arabic_language.png"} alt={"icon"}/>
+                            <ImPowerCord />
                         )
                     } else if (imageUrl === "Temperature Forward") {
                         return (
-                            <img src={"/french_language.png"} alt={"icon"}/>
+                            <FaThermometerThreeQuarters />
                         )
                     } else if (imageUrl === "Temperature Return") {
                         return (
-                            <img src={"/english_language.png"} alt={"icon"}/>
+                            <FaThermometerEmpty />
                         )
                     } else {
                         return (
