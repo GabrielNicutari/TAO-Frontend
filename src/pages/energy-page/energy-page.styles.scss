@@ -1,0 +1,35 @@
+.energy-page-container{
+  margin-top: 100px;
+  margin-left: 100px;
+  margin-right: 50px;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 60% 40%;
+}
+.left-energy-container{
+  padding: 5px;
+  grid-area: 1 / 1 / 2 / 2;
+}
+.right-energy-container{
+  padding: 5px;
+  grid-area: 1 / 2 / 2 / 3;
+}
+.energy-consumption-past-days{
+  height: 8rem;
+  background-color: lightgray;
+}
+.energy-consumption-today{
+  margin-top: 2rem;
+  height: 10rem;
+  background-color: #28CDCD;
+}
+.where-money-goes{
+  height: 10rem;
+  background-color: yellowgreen;
+}
+.energy-tips{
+  margin-top: 6rem;
+  height: 10rem;
+  background-color: mediumpurple;
+}
+
