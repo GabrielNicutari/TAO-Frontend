@@ -82,7 +82,7 @@ export default function NavBar() {
                     <Tabs variant='fullWidth' value={value} onChange={handleChange} aria-label='tabs'>
                         <LinkTab className='menu-item' label={Words.home} to="/" {...a11yProps(0)} />
 
-                        <LinkTab className='menu-item' label={Words.energy} to="/login" {...a11yProps(1)} />
+                        <LinkTab className='menu-item' label={Words.energy} to="/energy" {...a11yProps(1)} />
 
                         <LinkTab className='menu-item' label={Words.saveEnergy} to="/saveEnergy" {...a11yProps(2)} />
 

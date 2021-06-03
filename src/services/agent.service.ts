@@ -2,6 +2,7 @@ import axios, { AxiosError, AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
 import { history } from '../index';
 import {User, UserFormValues} from "../models/user";
+import {DailyReading} from "../models/daily-reading";
 import {store} from "../stores/store";
 
 const sleep = (delay: number) => {
@@ -70,6 +71,10 @@ const requests = {
 //     delete: (id: string) => axios.delete<void>(`/activities/${id}`)
 // }
 
+const DailyReadings = {
+    list: () => requests.get<DailyReading>('/dailyReadings')
+}
+
 const Account = {
     current: () => requests.get<User>('/account'),
     login: (user: UserFormValues) => requests.post('/account/login', user),
@@ -77,7 +82,7 @@ const Account = {
 }
 
 const agent = {
-    Account
+    Account, DailyReadings
 }
 
 export default agent;

@@ -18,10 +18,10 @@ export default function CardList() {
                 .then(res => res.json())
                 .then(res => {
                     setWeatherList(res.daily);
-                    console.log(res.daily);
+                    // console.log(res.daily);
                 })
                 .then(res => {
-                    console.log(res);
+                    // console.log(res);
                 });
         }
     })

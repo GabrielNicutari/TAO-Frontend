@@ -11,21 +11,24 @@ import LoginForm from "./components/login-form/login-form.component";
 import {EnergyPage} from "./pages/energy-page/energy-page.component";
 import {useStore} from "./stores/store";
 
+
 function App() {
   const location = useLocation();
-  const {commonStore, userStore} = useStore();
+  const {commonStore, userStore, dailyReadingStore} = useStore();
   const divStyle = {
     marginTop: '3.7em',
     minHeight: 'calc(100vh - 23vh)'
   };
 
   useEffect(() => {
-      if(commonStore.token) {
-          userStore.getUser().finally(() => commonStore.setAppLoaded());
-      } else {
-          commonStore.setAppLoaded();
-      }
-  }, [commonStore, userStore]);
+    dailyReadingStore.getDailyReadings();
+
+    if(commonStore.token) {
+        userStore.getUser().finally(() => commonStore.setAppLoaded());
+    } else {
+        commonStore.setAppLoaded();
+    }
+  }, [commonStore, userStore, dailyReadingStore]);
 
   // Loading functionality here, maybe
     // if(!commonStore.appLoaded) return <Loading></Loading>
@@ -45,6 +48,8 @@ function App() {
         </div>
 
         <Footer />
+        {/* <h2>{dailyReadingStore.energy}</h2>
+        <button  onClick={dailyReadingStore.setTitle} >add !</button> */}
     </>
   );
 }
