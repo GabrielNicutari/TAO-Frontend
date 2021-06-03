@@ -11,16 +11,18 @@ export default class DailyReadingStore {
     }
 
     getDailyReadings = async () => {
+        this.dailyReadings = []
         try {
             const result = await agent.DailyReadings.list();
-            result.map(dp => {
-                if (dp.houseReadingId === 1) {
-                    this.dailyReadings.push(dp)
+            result.map(dr => {
+                if (dr.houseReadingId === 1) {
+                    this.dailyReadings.push(dr)
                 }
             })
+            // console.log(this.dailyReadings)
+            return this.dailyReadings;
         } catch (error) {
             console.log(error)
         }
-        console.log(this.dailyReadings);
     }
 }

@@ -21,8 +21,6 @@ function App() {
   };
 
   useEffect(() => {
-    dailyReadingStore.getDailyReadings();
-
     if(commonStore.token) {
         userStore.getUser().finally(() => commonStore.setAppLoaded());
     } else {
