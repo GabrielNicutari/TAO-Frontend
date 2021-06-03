@@ -11,12 +11,16 @@ export default class DailyReadingStore {
     }
 
     getDailyReadings = async () => {
-        console.log("Hello from mobx")
         try {
-            const dailyReadings = await agent.DailyReadings.list();
-            console.log(dailyReadings);
+            const result = await agent.DailyReadings.list();
+            result.map(dp => {
+                if (dp.houseReadingId === 1) {
+                    this.dailyReadings.push(dp)
+                }
+            })
         } catch (error) {
             console.log(error)
         }
+        console.log(this.dailyReadings);
     }
 }

@@ -38,10 +38,10 @@ export default function Footer() {
                 <div className="bottom-box">
                     Copyright © 2021. All rights reserved.
                     <div className="social-icons">
-                        <a href="#"><FaYoutube style={iconStyle}/></a> 
-                        <a href="#"><FaInstagram style={iconStyle}/></a>
-                        <a href="#"><FaFacebook style={iconStyle}/></a>
-                        <a href="#"><FaTwitter style={iconStyle}/></a>
+                        <a href="https://www.youtube.com/"><FaYoutube style={iconStyle}/></a> 
+                        <a href="https://www.instagram.com/"><FaInstagram style={iconStyle}/></a>
+                        <a href="https://www.facebook.com/"><FaFacebook style={iconStyle}/></a>
+                        <a href="https://twitter.com/"><FaTwitter style={iconStyle}/></a>
                     </div>
                 </div>
 

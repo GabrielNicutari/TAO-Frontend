@@ -72,7 +72,7 @@ const requests = {
 // }
 
 const DailyReadings = {
-    list: () => requests.get<DailyReading>('/dailyReadings')
+    list: () => requests.get<DailyReading[]>('/dailyReadings')
 }
 
 const Account = {

@@ -9,5 +9,5 @@ export interface DailyReading {
     power: number,
     flow: number,
     houseReadingId: number,
-    houseReading?: string
+    houseReading: any
 }

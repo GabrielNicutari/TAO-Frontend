@@ -1,5 +1,4 @@
 import './daily-reading-container.styles.scss';
-import {useState} from "react";
 import {
     FaThermometerEmpty,
     FaThermometerThreeQuarters,
