@@ -1,30 +1,12 @@
-import { Link } from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import './nav-bar.styles.scss'
 import { AppBar, Tab, Tabs } from "@material-ui/core";
 import Logo from '../../assets/enapter_dark.png';
 import { Words } from "../../Words";
 import { useHistory } from "react-router-dom";
 import React, { useState } from "react";
-import FormControl from '@material-ui/core/FormControl';
-import NativeSelect from '@material-ui/core/NativeSelect';
 import {useStore} from "../../stores/store";
 import Select from 'react-select';
-
-function a11yProps(index: number) {
-    return {
-        id: `nav-tab-${index}`,
-        'aria-controls': `nav-tabpanel-${index}`,
-    };
-}
-
-function LinkTab(props: any) {
-    return (
-        <Tab
-            component={Link}
-            {...props}
-        />
-    );
-}
 
 export default function NavBar() {
     const [value, setValue] = useState(0);
@@ -40,7 +22,7 @@ export default function NavBar() {
     const onChangeLanguage = async (event: any) => {
         alert(`Are you sure you want to change the language to ${event.value}?`);
         await Words.translate(event.value);
-        history.push('/');
+        history.push(window.location.pathname); //fake route to the same page
     };
 
     const options = [
@@ -71,6 +53,8 @@ export default function NavBar() {
                 </div> },
     ];
 
+    const location = useLocation();
+
     return (
         <AppBar className='nav'>
             <div className='nav-container'>
@@ -79,20 +63,22 @@ export default function NavBar() {
                 </div>
 
                 <div className='tabs'>
-                    <Tabs variant='fullWidth' value={value} onChange={handleChange} aria-label='tabs'>
-                        <LinkTab className='menu-item' label={Words.home} to="/" {...a11yProps(0)} />
+                    <Tabs variant='fullWidth' value={location.pathname} onChange={handleChange} aria-label='tabs'>
+                        <Tab to={'/'} component={Link} className='menu-item' label={Words.home} value='/'/>
 
-                        <LinkTab className='menu-item' label={Words.energy} to="/login" {...a11yProps(1)} />
+                        <Tab to={'/energy'} className='menu-item' component={Link} label={Words.energy} value={'/energy'} />
 
-                        <LinkTab className='menu-item' label={Words.saveEnergy} to="/saveEnergy" {...a11yProps(2)} />
+                        <Tab to={'/saveEnergy'} className='menu-item' component={Link} label={Words.saveEnergy} value={'/saveEnergy'} />
 
-                        <LinkTab className='menu-item' label={Words.contact} to="/contact" {...a11yProps(3)} />
+                        <Tab to={'/contact'} className='menu-item' component={Link} label={Words.contact} value={'/contact'} />
                     </Tabs>
                     <div className="language-tab" >
                         <Select
                             placeholder='Language'
                             onChange={onChangeLanguage}
-                            options={options} />
+                            options={options}
+                            defaultValue={options[0]}
+                        />
                     </div>
                     <div style={{margin:'auto',marginLeft:'10px'}}>
                         <button onClick={logout} >Logout</button>

@@ -38,7 +38,7 @@ export class Words {
     public static flow = WordsConstants.FLOW;
 
     static async translate(toLanguage: string): Promise<void> {
-        await axios.post("http://localhost:5001/Translation", { words: [
+        await axios.post("http://localhost:5001/api/Translation", { words: [
             WordsConstants.CONTACT_FORM_TITLE,
             WordsConstants.LEAVE_US_MESSAGE,
             WordsConstants.INVALID_EMAIL_ERROR_MESSAGE,
