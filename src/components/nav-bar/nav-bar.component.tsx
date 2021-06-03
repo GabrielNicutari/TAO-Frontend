@@ -58,20 +58,25 @@ export default function NavBar() {
     return (
         <AppBar className='nav'>
             <div className='nav-container'>
-                <div className='logo'>
-                    <img src={Logo} alt='logo' />
+                <div className='nav-left'>
+                    <div className='logo'>
+                        <img src={Logo} alt='logo' />
+                    </div>
+
+                    <div className='tabs'>
+                        <Tabs variant='fullWidth' value={location.pathname} onChange={handleChange} aria-label='tabs'>
+                            <Tab to={'/'} component={Link} className='menu-item' label={Words.home} value='/'/>
+
+                            <Tab to={'/energy'} className='menu-item' component={Link} label={Words.energy} value={'/energy'} />
+
+                            <Tab to={'/saveEnergy'} className='menu-item' component={Link} label={Words.saveEnergy} value={'/saveEnergy'} />
+
+                            <Tab to={'/contact'} className='menu-item' component={Link} label={Words.contact} value={'/contact'} />
+                        </Tabs>
+                    </div>
                 </div>
 
-                <div className='tabs'>
-                    <Tabs variant='fullWidth' value={location.pathname} onChange={handleChange} aria-label='tabs'>
-                        <Tab to={'/'} component={Link} className='menu-item' label={Words.home} value='/'/>
-
-                        <Tab to={'/energy'} className='menu-item' component={Link} label={Words.energy} value={'/energy'} />
-
-                        <Tab to={'/saveEnergy'} className='menu-item' component={Link} label={Words.saveEnergy} value={'/saveEnergy'} />
-
-                        <Tab to={'/contact'} className='menu-item' component={Link} label={Words.contact} value={'/contact'} />
-                    </Tabs>
+                <div className='nav-right'>
                     <div className="language-tab" >
                         <Select
                             placeholder='Language'
@@ -84,8 +89,6 @@ export default function NavBar() {
                         <button onClick={logout} >Logout</button>
                     </div>
                 </div>
-
-
             </div>
         </AppBar>
     )
