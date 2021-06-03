@@ -31,4 +31,10 @@ export abstract class WordsConstants {
     static readonly PASSWORD = "Password";
     static readonly LOGIN_FORM_TITLE = "Log in to your TAO account!";
     static readonly LOGIN = "Login";
+    static readonly VOLUME = "Volume";
+    static readonly HOUR_COUNTER = "Hour Counter";
+    static readonly TEMP_FORWARD = "Temperature Forward";
+    static readonly TEMP_RETURN = "Temperature Return";
+    static readonly POWER = "Power";
+    static readonly FLOW = "Flow";
 }

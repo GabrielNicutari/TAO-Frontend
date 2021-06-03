@@ -30,6 +30,12 @@ export class Words {
     public static password = WordsConstants.PASSWORD;
     public static loginFormTitle = WordsConstants.LOGIN_FORM_TITLE;
     public static login = WordsConstants.LOGIN;
+    public static volume = WordsConstants.VOLUME;
+    public static hourCounter = WordsConstants.HOUR_COUNTER;
+    public static temperatureForward = WordsConstants.TEMP_FORWARD;
+    public static temperatureReturn = WordsConstants.TEMP_RETURN;
+    public static power = WordsConstants.POWER;
+    public static flow = WordsConstants.FLOW;
 
     static async translate(toLanguage: string): Promise<void> {
         await axios.post("http://localhost:5001/Translation", { words: [
@@ -60,7 +66,13 @@ export class Words {
             WordsConstants.MESSAGE,
             WordsConstants.PASSWORD,
             WordsConstants.LOGIN_FORM_TITLE,
-            WordsConstants.LOGIN
+            WordsConstants.LOGIN,
+            WordsConstants.VOLUME,
+            WordsConstants.HOUR_COUNTER,
+            WordsConstants.TEMP_FORWARD,
+            WordsConstants.TEMP_RETURN,
+            WordsConstants.POWER,
+            WordsConstants.FLOW,
             ], toLanguage})
             .then(response => {
                 console.log(response.data);
@@ -92,6 +104,12 @@ export class Words {
                 this.password = response.data[25];
                 this.loginFormTitle = response.data[26];
                 this.login = response.data[27];
+                this.volume = response.data[28];
+                this.hourCounter = response.data[29];
+                this.temperatureForward = response.data[30];
+                this.temperatureReturn = response.data[31];
+                this.power = response.data[32];
+                this.flow = response.data[33];
             })
     }
 }

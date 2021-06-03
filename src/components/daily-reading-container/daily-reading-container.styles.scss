@@ -1,0 +1,13 @@
+.daily-reading-container{
+  display: grid;
+  grid-template-columns: 10% 70% 10% 10%;
+  margin-top: 1em;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.daily-reading-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
