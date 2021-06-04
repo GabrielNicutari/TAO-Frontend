@@ -2,7 +2,6 @@ import React from 'react';
 import {Button} from '@material-ui/core';
 import WeatherBanner from "../../components/weather-banner/weather-banner.component";
 import InfoCard from "../../components/info-card/info-card.component";
-import Footer from "../../components/footer/footer.component";
 import './home-page.styles.scss';
 import house from '../../assets/house.png';
 import profileIcon from '../../assets/profile_icon.png';

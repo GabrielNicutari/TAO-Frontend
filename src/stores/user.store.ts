@@ -23,6 +23,7 @@ export default class UserStore {
             runInAction(() => this.user = user);
             history.push('/energy');
             this.user = user;
+            store.modalStore.closeModal();
             console.log(user);
         } catch (error) {
             throw error;
@@ -33,7 +34,7 @@ export default class UserStore {
         store.commonStore.setToken(null);
         window.localStorage.removeItem('jwt');
         this.user = null;
-        history.push('/');
+        // history.push('/');
     }
 
     getUser = async () => {

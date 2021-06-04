@@ -4,18 +4,14 @@ import { AppBar, Tab, Tabs } from "@material-ui/core";
 import Logo from '../../assets/enapter_dark.png';
 import { Words } from "../../Words";
 import { useHistory } from "react-router-dom";
-import React, { useState } from "react";
+import React from "react";
 import {useStore} from "../../stores/store";
 import Select from 'react-select';
+import LoginForm from '../login-form/login-form.component';
 
 export default function NavBar() {
-    const [value, setValue] = useState(0);
 
-    const {userStore: {user, logout}} = useStore();
-
-    const handleChange = (event: any, newValue: number) => {
-        setValue(newValue);
-    }
+    const {userStore: { logout, isLoggedIn, user}, modalStore} = useStore();
 
     const history = useHistory();
 
@@ -55,6 +51,13 @@ export default function NavBar() {
 
     const location = useLocation();
 
+    const handleClick = (event: any) => {
+        if(!isLoggedIn && !user) {
+            event.preventDefault();
+            modalStore.openModal(<LoginForm />);
+        }
+    }
+
     return (
         <AppBar className='nav'>
             <div className='nav-container'>
@@ -64,10 +67,10 @@ export default function NavBar() {
                     </div>
 
                     <div className='tabs'>
-                        <Tabs variant='fullWidth' value={location.pathname} onChange={handleChange} aria-label='tabs'>
+                        <Tabs variant='fullWidth' value={location.pathname} aria-label='tabs'>
                             <Tab to={'/'} component={Link} className='menu-item' label={Words.home} value='/'/>
 
-                            <Tab to={'/energy'} className='menu-item' component={Link} label={Words.energy} value={'/energy'} />
+                            <Tab onClick={handleClick} to={'/energy'} className='menu-item' component={Link} label={Words.energy} value={'/energy'} />
 
                             <Tab to={'/saveEnergy'} className='menu-item' component={Link} label={Words.saveEnergy} value={'/saveEnergy'} />
 
@@ -86,7 +89,12 @@ export default function NavBar() {
                         />
                     </div>
                     <div style={{margin:'auto',marginLeft:'10px'}}>
-                        <button onClick={logout} >Logout</button>
+                        {
+                            isLoggedIn && user ?
+                            <button onClick={logout}>Logout</button>
+                            :
+                            <button onClick={() => modalStore.openModal(<LoginForm />)}>Login</button>
+                        }
                     </div>
                 </div>
             </div>

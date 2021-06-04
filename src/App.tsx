@@ -10,6 +10,7 @@ import SaveEnergyIframe from "./components/save-energy-iframe/save-energy-iframe
 import LoginForm from "./components/login-form/login-form.component";
 import {EnergyPage} from "./pages/energy-page/energy-page.component";
 import {useStore} from "./stores/store";
+import ModalContainer from "./components/modal-container/modal-container.component";
 
 function App() {
   const location = useLocation();
@@ -43,6 +44,7 @@ function App() {
               <Route path='/login' component={LoginForm} />
             </Switch>
         </div>
+        <ModalContainer />
 
         <Footer />
     </>
