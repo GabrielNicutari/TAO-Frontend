@@ -3,7 +3,6 @@ import './energy-page.styles.scss';
 import EnergyPageTodaySection from "../../components/energy-page-today-section/energy-page-today-section.component";
 import Chart from '../../components/chart/chart.component';
 import {useStore} from '../../stores/store';
-import ProgressBar from 'react-bootstrap/ProgressBar';
 
 export function EnergyPage() {
     const {dailyReadingStore, userStore: {isLoggedIn}} = useStore();
