@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './energy-page.styles.scss';
 import EnergyPageTodaySection from "../../components/energy-page-today-section/energy-page-today-section.component";
-// import Chart from '../../components/chart/chart.component';
+import Chart from '../../components/chart/chart.component';
 import {useStore} from '../../stores/store';
 
 export function EnergyPage() {
@@ -24,8 +24,10 @@ export function EnergyPage() {
         <div className={"energy-page-container"}>
             <div className={"left-energy-container"}>
                 <h2>Energy Consumption</h2>
-                {/* <Chart dailyReadings={dailyReadings}/> */}
-                <div className={"energy-consumption-today"}><EnergyPageTodaySection /></div>
+                <Chart dailyReadings={dailyReadings}/>
+                <div className={"energy-consumption-today"}>
+                    <EnergyPageTodaySection dailyReadings={dailyReadings}/>
+                    </div>
             </div>
             <div className={"right-energy-container"}>
                 <div className={"where-money-goes"}>Where does my money go?</div>

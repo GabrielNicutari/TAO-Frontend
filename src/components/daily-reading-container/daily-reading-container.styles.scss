@@ -1,6 +1,6 @@
 .daily-reading-container{
-  display: grid;
-  grid-template-columns: 10% 70% 10% 10%;
+  display: block;
+  // justify-content: space-between;
   margin-top: 1em;
   padding-left: 5px;
   padding-right: 5px;
