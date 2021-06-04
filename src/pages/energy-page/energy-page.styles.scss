@@ -13,6 +13,9 @@
   width: 40%;
   height: 77vh;
   background-color: #F9FAFC;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .energy-consumption-past-days{
   height: 8rem;
@@ -23,12 +26,17 @@
   height: 10rem;
 }
 .where-money-goes{
-  height: 10rem;
-  background-color: yellowgreen;
+  padding: 0 20px;
 }
 .energy-tips{
   margin-top: 6rem;
   height: 10rem;
   background-color: mediumpurple;
+
 }
 
+.progress-bar {
+  height: 7px;
+  width: 90%;
+  background-color: #53D7D7;
+}
