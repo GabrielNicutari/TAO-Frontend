@@ -52,10 +52,20 @@ const ContactForm = () => {
                         fullWidth={true}
                         multiline
                         rows={8} /><br/><br/>
+                    {/*<Button*/}
+                    {/*    onClick={handleSubmit}*/}
+                    {/*    variant="contained"*/}
+                    {/*   >*/}
+                    {/*</Button>*/}
+
                     <Button
                         onClick={handleSubmit}
-                        variant="contained"
-                        style={{width: '100%', background:'black', color: 'white', fontSize: '15px', }}>
+                        className='button'
+                        variant='contained'
+                        color='primary'
+                        type='submit'
+                        style={{width: '100%', fontSize: '15px', }}
+                    >
                         {Words.send}
                     </Button>
                 </div>
