@@ -2,17 +2,17 @@
   margin-top: 60px;
   margin-left: 100px;
   margin-right: 50px;
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 60% 40%;
+  display: flex;
 }
 .left-energy-container{
   padding: 20px;
-  grid-area: 1 / 1 / 2 / 2;
+  width: 60%;
 }
 .right-energy-container{
   padding: 20px;
-  grid-area: 1 / 2 / 2 / 3;
+  width: 40%;
+  height: 77vh;
+  background-color: #F9FAFC;
 }
 .energy-consumption-past-days{
   height: 8rem;

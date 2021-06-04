@@ -12,21 +12,22 @@ import {EnergyPage} from "./pages/energy-page/energy-page.component";
 import {useStore} from "./stores/store";
 import ModalContainer from "./components/modal-container/modal-container.component";
 
+
 function App() {
   const location = useLocation();
-  const {commonStore, userStore} = useStore();
+  const {commonStore, userStore, dailyReadingStore} = useStore();
   const divStyle = {
     marginTop: '3.7em',
     minHeight: 'calc(100vh - 23vh)'
   };
 
   useEffect(() => {
-      if(commonStore.token) {
-          userStore.getUser().finally(() => commonStore.setAppLoaded());
-      } else {
-          commonStore.setAppLoaded();
-      }
-  }, [commonStore, userStore]);
+    if(commonStore.token) {
+        userStore.getUser().finally(() => commonStore.setAppLoaded());
+    } else {
+        commonStore.setAppLoaded();
+    }
+  }, [commonStore, userStore, dailyReadingStore]);
 
   // Loading functionality here, maybe
     // if(!commonStore.appLoaded) return <Loading></Loading>
@@ -47,6 +48,8 @@ function App() {
         <ModalContainer />
 
         <Footer />
+        {/* <h2>{dailyReadingStore.energy}</h2>
+        <button  onClick={dailyReadingStore.setTitle} >add !</button> */}
     </>
   );
 }

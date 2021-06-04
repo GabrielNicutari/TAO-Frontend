@@ -2,6 +2,7 @@ import { createContext, useContext } from "react";
 import ModalStore from "./modal.store";
 import CommonStore from "./common.store";
 import UserStore from "./user.store";
+import DailyReadingStore from "./daily-reading.store"; 
 
 interface Store {
     userStore: UserStore;
