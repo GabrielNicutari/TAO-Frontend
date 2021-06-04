@@ -5,12 +5,9 @@ import './login-form.styles.scss'
 import {Button} from "@material-ui/core";
 import {useState} from "react";
 import {useStore} from "../../stores/store";
-import {observer} from "mobx-react-lite";
 import {UserFormValues} from "../../models/user";
-import {ErrorMessage} from "formik";
-import {Label} from "semantic-ui-react";
 
-export default observer(function LoginForm() {
+const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -35,7 +32,7 @@ export default observer(function LoginForm() {
 
             <form className='form-content' method='post' onSubmit={handleSubmit}>
                 <TextField
-                    id="outlined-basic"
+                    id="outlined-basic1"
                     className='text-field'
                     value={email}
                     label={Words.email}
@@ -45,7 +42,7 @@ export default observer(function LoginForm() {
                 />
 
                 <TextField
-                    id="outlined-basic"
+                    id="outlined-basic2"
                     className='text-field'
                     value={password}
                     label={Words.password}
@@ -61,4 +58,6 @@ export default observer(function LoginForm() {
             </form>
         </div>
     );
-});
+};
+
+export default LoginForm;

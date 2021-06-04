@@ -40,8 +40,8 @@ const ContactForm = () => {
             <form onSubmit={handleSubmit}>
                 <div className="left-container">
                     <h3>{Words.leaveUsMessage}</h3>
-                    <TextField id="outlined-basic" value={name} label={Words.nameForm} variant="outlined" onChange={e => setName(e.target.value)} fullWidth={true} /><br/><br/>
-                    <TextField id="outlined-basic" value={email} label={Words.email} variant="outlined" onChange={e => setEmail(e.target.value)} fullWidth={true} />
+                    <TextField id="outlined-basic1" value={name} label={Words.nameForm} variant="outlined" onChange={e => setName(e.target.value)} fullWidth={true} /><br/><br/>
+                    <TextField id="outlined-basic2" value={email} label={Words.email} variant="outlined" onChange={e => setEmail(e.target.value)} fullWidth={true} />
                     {error === '' ? <div><br/></div> : <div>{error}<br/><br/></div> }
                     <TextField
                         id="outlined-multiline-static"
