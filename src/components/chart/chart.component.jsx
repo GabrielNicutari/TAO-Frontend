@@ -7,10 +7,14 @@ export default function Chart() {
     const response = dailyReadingStore.getDailyReadings();
     const [dailyReadings, setDailyReadings] = useState([]);
     
-    useEffect( async () => {
+    useEffect( () => {
+        fetchData();
+    }, []);
+
+    const fetchData = async () => {
         const data = await response;
         setDailyReadings(data);
-    }, []);
+    }
 
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     
