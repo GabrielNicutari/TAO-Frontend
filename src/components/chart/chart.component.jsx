@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Bar, Line, Pie} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 import {useStore} from '../../stores/store';
 
 export default function Chart() {
@@ -9,8 +9,8 @@ export default function Chart() {
     
     useEffect( async () => {
         const data = await response;
-        setDailyReadings(data)
-    }, [])
+        setDailyReadings(data);
+    }, []);
 
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     
