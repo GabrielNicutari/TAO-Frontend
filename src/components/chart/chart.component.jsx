@@ -12,11 +12,15 @@ export default function Chart() {
         setDailyReadings(data)
     }, [])
 
-    // console.log(dailyReadings)
-
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    
     return (
         dailyReadings.length > 0 ?
         <div className='chart'>
+            <div> {new Date(dailyReadings[0].timestamp).getDate()} {months[new Date(dailyReadings[0].timestamp).getMonth()]} -&nbsp;
+                    {new Date(dailyReadings[4].timestamp).getDate()} {months[new Date(dailyReadings[4].timestamp).getMonth()]},&nbsp;
+                    {new Date(dailyReadings[4].timestamp).getFullYear()} 
+            </div>
             <Bar
                 data={{
                     labels: [dailyReadings[0].timestamp.substring(0,10), dailyReadings[1].timestamp.substring(0,10), dailyReadings[2].timestamp.substring(0,10), dailyReadings[3].timestamp.substring(0,10), dailyReadings[4].timestamp.substring(0,10),],
@@ -31,11 +35,11 @@ export default function Chart() {
                             dailyReadings[4].energy 
                         ],
                         backgroundColor:[
-                          'rgba(255, 99, 132, 0.6)',
-                          'rgba(54, 162, 235, 0.6)',
-                          'rgba(255, 206, 86, 0.6)',
-                          'rgba(75, 192, 192, 0.6)',
-                          'rgba(153, 102, 255, 0.6)',
+                            'rgba(75, 192, 192, 0.6)',
+                            'rgba(75, 192, 192, 0.6)',
+                            'rgba(75, 192, 192, 0.6)',
+                            'rgba(75, 192, 192, 0.6)',
+                            'rgba(75, 192, 192, 0.6)',
                         ]
                       }
                     ]

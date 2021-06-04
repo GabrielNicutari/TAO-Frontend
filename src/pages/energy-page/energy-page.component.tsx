@@ -8,7 +8,7 @@ export function EnergyPage() {
     return (
         <div className={"energy-page-container"}>
             <div className={"left-energy-container"}>
-                <div className={"energy-consumption-past-days"}></div>
+                <h2>Energy Consumption</h2>
                 <Chart />
                 <div className={"energy-consumption-today"}><EnergyPageTodaySection /></div>
             </div>
