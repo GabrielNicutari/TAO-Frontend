@@ -1,6 +1,6 @@
 import {Link, useLocation} from 'react-router-dom';
 import './nav-bar.styles.scss'
-import { AppBar, Tab, Tabs } from "@material-ui/core";
+import {AppBar, Button, Tab, Tabs} from "@material-ui/core";
 import Logo from '../../assets/enapter_dark.png';
 import { Words } from "../../Words";
 import { useHistory } from "react-router-dom";
@@ -49,6 +49,11 @@ export default function NavBar() {
                 </div> },
     ];
 
+    const styles = {
+        control: (css: any) => ({ ...css, cursor: 'pointer' }),
+        option: (css: any) => ({ ...css, cursor: 'pointer' }),
+    }
+
     const location = useLocation();
 
     const handleClick = (event: any) => {
@@ -86,14 +91,24 @@ export default function NavBar() {
                             onChange={onChangeLanguage}
                             options={options}
                             defaultValue={options[0]}
-                        />
+                            styles={styles}/>
                     </div>
                     <div style={{margin:'auto',marginLeft:'10px'}}>
                         {
                             isLoggedIn && user ?
-                            <button onClick={logout}>Logout</button>
+                            <Button
+                                onClick={logout}
+                                className='button button-login'
+                                variant='contained'
+                                color='primary'>Logout
+                            </Button>
                             :
-                            <button onClick={() => modalStore.openModal(<LoginForm />)}>Login</button>
+                            <Button
+                                onClick={() => modalStore.openModal(<LoginForm />)}
+                                className='button button-login'
+                                variant='contained'
+                                color='primary'>Login
+                            </Button>
                         }
                     </div>
                 </div>
