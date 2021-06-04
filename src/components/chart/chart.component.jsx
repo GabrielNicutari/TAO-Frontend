@@ -6,32 +6,29 @@ export default function Chart() {
     const {dailyReadingStore} = useStore();
     const response = dailyReadingStore.getDailyReadings();
     const [dailyReadings, setDailyReadings] = useState([]);
-    let arr = []
-    useEffect(() => {
-        console.log("use")
-        response.then(dailyReadings => {
-            arr = Array.from(dailyReadings)
-            setDailyReadings( arr);
-        })
-        
+    
+    useEffect( async () => {
+        const data = await response;
+        setDailyReadings(data)
     }, [])
 
-    // console.log(dailyReadings[0].energy)
+    // console.log(dailyReadings)
 
     return (
+        dailyReadings.length > 0 ?
         <div className='chart'>
             <Bar
                 data={{
-                    labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+                    labels: [dailyReadings[0].timestamp.substring(0,10), dailyReadings[1].timestamp.substring(0,10), dailyReadings[2].timestamp.substring(0,10), dailyReadings[3].timestamp.substring(0,10), dailyReadings[4].timestamp.substring(0,10),],
                     datasets:[
                       {
                         label:'Energy MWh',
                         data:[
-                            // dailyReadings[0].energy,
-                            // dailyReadings[1]['energy'],
-                            // dailyReadings[2]['energy'],
-                            // dailyReadings[3]['energy'],
-                            // dailyReadings[4]['energy']
+                            dailyReadings[0].energy,
+                            dailyReadings[1].energy,
+                            dailyReadings[2].energy,
+                            dailyReadings[3].energy,
+                            dailyReadings[4].energy 
                         ],
                         backgroundColor:[
                           'rgba(255, 99, 132, 0.6)',
@@ -43,19 +40,21 @@ export default function Chart() {
                       }
                     ]
                   }} 
-                  options={{
-                    title:{
-                      display:'Title',
-                      text:'Energy readings from last 5 days',
-                      fontSize:25
-                    },
-                    legend:{
-                      display: true,
-                      position:'bottom'
-                    }
-                  }}
             />
             
+        </div> : 
+        <div className='chart'>
+            <Bar
+                data={{
+                    labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+                    datasets:[
+                      {
+                        label:'Energy MWh',
+                        data:[],
+                      }
+                    ]
+                  }} 
+            />
         </div>
     );
 }
