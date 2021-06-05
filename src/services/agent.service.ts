@@ -72,7 +72,8 @@ const requests = {
 // }
 
 const DailyReadings = {
-    list: () => requests.get<DailyReading[]>('/dailyReadings')
+    list: (houseId: number, numberLatestObservations: number) =>
+        requests.get<DailyReading[]>(`/dailyReadings?houseId=${houseId}&numberLatestObservations=${numberLatestObservations}`)
 }
 
 const Account = {

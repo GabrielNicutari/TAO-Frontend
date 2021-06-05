@@ -36,6 +36,8 @@ export class Words {
     public static temperatureReturn = WordsConstants.TEMP_RETURN;
     public static power = WordsConstants.POWER;
     public static flow = WordsConstants.FLOW;
+    public static energyConsumption = WordsConstants.ENERGY_CONSUMPTION;
+    public static latestObservation = WordsConstants.LATEST_OBSERVATION;
 
     static async translate(toLanguage: string): Promise<void> {
         await axios.post("http://localhost:5001/api/Translation", { words: [
@@ -73,6 +75,8 @@ export class Words {
             WordsConstants.TEMP_RETURN,
             WordsConstants.POWER,
             WordsConstants.FLOW,
+            WordsConstants.ENERGY_CONSUMPTION,
+            WordsConstants.LATEST_OBSERVATION,
             ], toLanguage})
             .then(response => {
                 console.log(response.data);
@@ -110,6 +114,8 @@ export class Words {
                 this.temperatureReturn = response.data[31];
                 this.power = response.data[32];
                 this.flow = response.data[33];
+                this.energyConsumption = response.data[34];
+                this.latestObservation = response.data[35];
             })
     }
 }

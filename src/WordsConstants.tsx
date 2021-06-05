@@ -37,4 +37,6 @@ export abstract class WordsConstants {
     static readonly TEMP_RETURN = "Temperature Return";
     static readonly POWER = "Power";
     static readonly FLOW = "Flow";
+    static readonly ENERGY_CONSUMPTION = "Energy Consumption";
+    static readonly LATEST_OBSERVATION = "Latest Observation";
 }

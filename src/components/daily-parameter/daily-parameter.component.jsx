@@ -2,7 +2,6 @@ import React from 'react';
 import './daily-parameter.styles.scss';
 
 export default function DailyReadingContainer({name, data, icon, measurementUnit}) {
-    // console.log('drcontainer:', data)
     return (
         <div className="parameter-box">
             <span>{icon}</span>

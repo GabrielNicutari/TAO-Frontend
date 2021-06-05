@@ -1,23 +1,23 @@
-import React, {useState, useEffect} from 'react';
 import './energy-page-today-section.styles.scss';
-import ComponentTitle from "../title/title";
 import DailyReadingContainer from "../daily-reading-container/daily-reading-container.component";
+import {Words} from "../../Words";
 
-
-export default function EnergyPageTodaySection({dailyReadings}) {
-
-    
-
+export default function EnergyPageTodaySection({dailyReading}) {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
     return (
-        dailyReadings.length > 0 ?
         <div>
-            <h2>Latest Observation: <span>{new Date(dailyReadings[4].timestamp).getDate()} - {months[new Date(dailyReadings[4].timestamp).getMonth()]} {new Date(dailyReadings[4].timestamp).getFullYear()}</span></h2>
-            <DailyReadingContainer dailyReadings={dailyReadings} />
-            
+            {
+                dailyReading.timestamp ?
+                <div>
+                    <h2>{Words.latestObservation}:
+                    <span style={{marginLeft: "0.3em"}}>{new Date(dailyReading.timestamp).getDate()}</span>
+                    <span style={{marginLeft: "0.3em"}}>{months[new Date(dailyReading.timestamp).getMonth()]}</span>
+                    <span style={{marginLeft: "0.3em"}}>{new Date(dailyReading.timestamp).getFullYear()}</span>
+                    </h2>
+                    <DailyReadingContainer dailyReading={dailyReading}/>
+                </div> : <h2>Loading...</h2>
+            }
         </div>
-        : <h2>Latest Observation:</h2>
     );
 }
 

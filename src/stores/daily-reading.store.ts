@@ -1,26 +1,15 @@
-import { makeObservable, makeAutoObservable, observable } from "mobx";
-import { DailyReading } from "../models/daily-reading";
+import { makeAutoObservable, } from "mobx";
 import agent from "../services/agent.service";
 
 export default class DailyReadingStore {
-    dailyReadings: DailyReading[] = [];
-
 
     constructor() {
         makeAutoObservable(this)
     }
 
-    getDailyReadings = async () => {
-        this.dailyReadings = []
+    getDailyReadings = async (houseId: number, numberLatestObservations: number) => {
         try {
-            const result = await agent.DailyReadings.list();
-            result.map(dr => {
-                if (dr.houseReadingId === 1) {
-                    this.dailyReadings.push(dr)
-                }
-            })
-            // console.log(this.dailyReadings)
-            return this.dailyReadings;
+            return await agent.DailyReadings.list(houseId, numberLatestObservations);
         } catch (error) {
             console.log(error)
         }
