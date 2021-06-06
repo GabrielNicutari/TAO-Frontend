@@ -8,10 +8,13 @@ import React from "react";
 import {useStore} from "../../stores/store";
 import Select from 'react-select';
 import LoginForm from '../login-form/login-form.component';
+import {observer} from "mobx-react-lite";
 
-export default function NavBar() {
+export default observer(function NavBar() {
 
     const {userStore: { logout, isLoggedIn, user}, modalStore} = useStore();
+
+    console.log("user", user);
 
     const history = useHistory();
 
@@ -57,7 +60,7 @@ export default function NavBar() {
     const location = useLocation();
 
     const handleClick = (event: any) => {
-        if(!isLoggedIn && !user) {
+        if(!user) {
             event.preventDefault();
             modalStore.openModal(<LoginForm />);
         }
@@ -95,7 +98,7 @@ export default function NavBar() {
                     </div>
                     <div style={{margin:'auto',marginLeft:'10px'}}>
                         {
-                            isLoggedIn && user ?
+                            user ?
                             <Button
                                 onClick={logout}
                                 className='button button-login'
@@ -115,4 +118,4 @@ export default function NavBar() {
             </div>
         </AppBar>
     )
-}
+});
