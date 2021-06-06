@@ -8,20 +8,38 @@ import {Image} from "semantic-ui-react";
 import { Words  } from '../../Words';
 import './contact-form.styles.scss'
 import axios from "axios";
+import {toast} from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css"
 
 const ContactForm = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
-    const handleSubmit = () => {
+    const notify = () => {
+        toast.info('Email sent', {position: toast.POSITION.TOP_CENTER, autoClose: 10000});
+    };
+    const success = () => {
+        toast.success('Email received successfully', {position: toast.POSITION.TOP_CENTER, autoClose: 10000});
+    };
+    const errorNotification = () => {
+        toast.error('Error. Try again later or call us at +45 29 39 11 29', {position: toast.POSITION.TOP_CENTER, autoClose: 10000});
+    };
+    const handleSubmit = (event: any) => {
+        event.preventDefault();
+        notify();
         if (emailIsValid(email)) {
             setError('');
             const contactFormData = {name, email, message}
             console.log(contactFormData);
-            // call the api here...
-            axios.post("http://localhost:5001/ContactForm", contactFormData)
-                .then(res => console.log(res));
+            axios.post("http://localhost:5001/api/ContactForm", contactFormData)
+                .then(res => {
+                    if (res.data === true) {
+                        success();
+                    } else {
+                        errorNotification();
+                    }
+                });
         } else {
             setError(Words.invalidEmailErrorMessage);
         }

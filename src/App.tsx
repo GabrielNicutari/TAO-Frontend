@@ -11,8 +11,9 @@ import LoginForm from "./components/login-form/login-form.component";
 import {EnergyPage} from "./pages/energy-page/energy-page.component";
 import {useStore} from "./stores/store";
 import ModalContainer from "./components/modal-container/modal-container.component";
+import {toast} from "react-toastify";
 
-
+toast.configure()
 function App() {
   const location = useLocation();
   const {commonStore, userStore, dailyReadingStore} = useStore();
