@@ -8,7 +8,7 @@ import {object} from "yup";
 import {Words} from "../../Words";
 
 export function EnergyPage() {
-    const {dailyReadingStore, userStore: {isLoggedIn}} = useStore();
+    const {dailyReadingStore, userStore: {user}} = useStore();
     const [latestFiveObservations, setLatestFiveObservations] = useState<any[]>([]);
     const [latestObservation, setLatestObservation] = useState<any>({});
 
@@ -26,7 +26,7 @@ export function EnergyPage() {
     }
 
     return (
-        isLoggedIn ?
+        user ?
         <div className={"energy-page-container"}>
             <div className={"left-energy-container"}>
                 <h2>{Words.energyConsumption}</h2>
