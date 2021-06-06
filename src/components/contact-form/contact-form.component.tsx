@@ -27,8 +27,8 @@ const ContactForm = () => {
     };
     const handleSubmit = (event: any) => {
         event.preventDefault();
-        notify();
         if (emailIsValid(email)) {
+            notify();
             setError('');
             const contactFormData = {name, email, message}
             console.log(contactFormData);
@@ -60,7 +60,7 @@ const ContactForm = () => {
                     <h3>{Words.leaveUsMessage}</h3>
                     <TextField id="outlined-basic1" value={name} label={Words.nameForm} variant="outlined" onChange={e => setName(e.target.value)} fullWidth={true} /><br/><br/>
                     <TextField id="outlined-basic2" value={email} label={Words.email} variant="outlined" onChange={e => setEmail(e.target.value)} fullWidth={true} />
-                    {error === '' ? <div><br/></div> : <div>{error}<br/><br/></div> }
+                    {error === '' ? <div><br/></div> : <div style={{color: "red"}}>{error}<br/><br/></div> }
                     <TextField
                         id="outlined-multiline-static"
                         value={message}
