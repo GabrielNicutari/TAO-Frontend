@@ -10,25 +10,30 @@ export default function Chart({dailyReadings}) {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     
     return (
-      // <div>asdasd</div>
-        dailyReadings.length > 0 ?
+        dailyReadings.length >= 5 ?
         <div className='chart'>
-            <div> {new Date(dailyReadings[0].timestamp).getDate()} {months[new Date(dailyReadings[0].timestamp).getMonth()]} -&nbsp;
-                    {new Date(dailyReadings[4].timestamp).getDate()} {months[new Date(dailyReadings[4].timestamp).getMonth()]},&nbsp;
-                    {new Date(dailyReadings[4].timestamp).getFullYear()} 
+            <div> {new Date(dailyReadings[4].timestamp).getDate()} {months[new Date(dailyReadings[4].timestamp).getMonth()]} -&nbsp;
+                    {new Date(dailyReadings[0].timestamp).getDate()} {months[new Date(dailyReadings[0].timestamp).getMonth()]},&nbsp;
+                    {new Date(dailyReadings[0].timestamp).getFullYear()}
             </div>
             <Bar
                 data={{
-                    labels: [dailyReadings[0].timestamp.substring(0,10), dailyReadings[1].timestamp.substring(0,10), dailyReadings[2].timestamp.substring(0,10), dailyReadings[3].timestamp.substring(0,10), dailyReadings[4].timestamp.substring(0,10)],
+                    labels: [
+                        dailyReadings[4].timestamp.substring(0,10),
+                        dailyReadings[3].timestamp.substring(0,10),
+                        dailyReadings[2].timestamp.substring(0,10),
+                        dailyReadings[1].timestamp.substring(0,10),
+                        dailyReadings[0].timestamp.substring(0,10)
+                    ],
                     datasets:[
                       {
                         label:'Energy MWh',
                         data:[
-                            dailyReadings[0].energy,
-                            dailyReadings[1].energy,
-                            dailyReadings[2].energy,
+                            dailyReadings[4].energy,
                             dailyReadings[3].energy,
-                            dailyReadings[4].energy 
+                            dailyReadings[2].energy,
+                            dailyReadings[1].energy,
+                            dailyReadings[0].energy
                         ],
                         backgroundColor:[
                             'rgba(75, 192, 192, 0.6)',

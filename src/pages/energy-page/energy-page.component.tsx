@@ -18,10 +18,11 @@ export function EnergyPage() {
 
     const fetchData = async () => {
         let response: any[] | undefined;
-        response = await dailyReadingStore.getDailyReadings(1, 5);
+        // replace houseId parameter to the getDailyReadings method with logged in user id
+        response = await dailyReadingStore.getDailyReadings(2, 5);
         if (response !== undefined) {
             setLatestFiveObservations(response);
-            setLatestObservation(response[response.length-1]);
+            setLatestObservation(response[0]);
         }
     }
 

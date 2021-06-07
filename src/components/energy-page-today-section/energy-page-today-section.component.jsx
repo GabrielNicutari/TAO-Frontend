@@ -7,7 +7,7 @@ export default function EnergyPageTodaySection({dailyReading}) {
     return (
         <div>
             {
-                dailyReading.timestamp ?
+                dailyReading ?
                 <div>
                     <h2>{Words.latestObservation}:
                     <span style={{marginLeft: "0.3em"}}>{new Date(dailyReading.timestamp).getDate()}</span>
