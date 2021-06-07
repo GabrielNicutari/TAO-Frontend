@@ -39,66 +39,67 @@ export function EnergyPage() {
     }
 
     return (
-        user ?
-        <div style={{position: "relative"}}>
-            <img src={StripesDark} alt="stripes-dark" className="stripes-dark-right-top"/>
-            
-            <div className={"energy-page-container"}>
-                <div className={"left-energy-container"}>
-                    <h2>{Words.energyConsumption}</h2>
-                    <Chart dailyReadings={latestFiveObservations} />
-                    <div className={"energy-consumption-today"}>
-                        <EnergyPageTodaySection dailyReading={latestObservation}/>
-                    </div>
-                </div>
+        user ? <div>
+                { latestFiveObservations.length !== 0 ? <div style={{position: "relative"}}>
+                    <img src={StripesDark} alt="stripes-dark" className="stripes-dark-right-top"/>
 
-                <div className={"right-energy-container"}>
-                    <div className={"where-money-goes"}>
-                        <h2>Energy Statistics</h2>
-                        <div className="stats-container">
-                            <div className="stat-box stat-icon"><ImPower /> 
-                                Energy
-                                <div>2.078 dkk/KWh</div>
-                            </div>
-
-                            <div className="stat-box">
-                                MIN
-                                <div className="stat-value">{energyStats.minEnergy}</div>
-                                <div className="stat-price">{(2.078 * energyStats.minEnergy).toFixed(0)} dkk</div>
-                            </div>
-
-                            <div className="stat-box">
-                                MAX
-                                <div className="stat-value">{energyStats.maxEnergy}</div>
-                                <div className="stat-price">{(2.078 * energyStats.maxEnergy).toFixed(0)} dkk</div>
-                            </div>
-
-                            <div className="stat-box">
-                                AVERAGE
-                                <div className="stat-value">{energyStats.avgEnergy}</div>
-                                <div className="stat-price">{(2.078 * energyStats.avgEnergy).toFixed(0)} dkk</div>
+                    <div className={"energy-page-container"}>
+                        <div className={"left-energy-container"}>
+                            <h2>{Words.energyConsumption}</h2>
+                            <Chart dailyReadings={latestFiveObservations} />
+                            <div className={"energy-consumption-today"}>
+                                <EnergyPageTodaySection dailyReading={latestObservation}/>
                             </div>
                         </div>
-                        
-                    </div>
 
-                    <div className="tips-box">
-                        <div className="icons">
-                            <div className="save-energy-icon"><img src={SaveEnergy} alt="save energy" /></div>
-                            <div className="plant-icon"><img src={Plant} alt="green mindset"/></div>
-                        </div>
-                        
-                        <div className="tips-info">
-                            <div className="tip-header">Save more energy</div> 
-                            <div className="tip-text"> Don't hesitate and find out how much energy you can save by following a few simple tips </div>
-                            <button className="tip-button"> VIEW TIPS</button>
+                        <div className={"right-energy-container"}>
+                            <div className={"where-money-goes"}>
+                                <h2>Energy Statistics</h2>
+                                <div className="stats-container">
+                                    <div className="stat-box stat-icon">
+                                        <ImPower style={{marginRight:"10px"}} />
+                                        Energy
+                                        <div>2.078 dkk/KWh</div>
+                                    </div>
+
+                                    <div className="stat-box">
+                                        MIN
+                                        <div className="stat-value">{energyStats.minEnergy}</div>
+                                        <div className="stat-price">{(2.078 * energyStats.minEnergy).toFixed(0)} dkk</div>
+                                    </div>
+
+                                    <div className="stat-box">
+                                        MAX
+                                        <div className="stat-value">{energyStats.maxEnergy}</div>
+                                        <div className="stat-price">{(2.078 * energyStats.maxEnergy).toFixed(0)} dkk</div>
+                                    </div>
+
+                                    <div className="stat-box">
+                                        AVERAGE
+                                        <div className="stat-value">{energyStats.avgEnergy}</div>
+                                        <div className="stat-price">{(2.078 * energyStats.avgEnergy).toFixed(0)} dkk</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div className="tips-box">
+                                <div className="icons">
+                                    <div className="save-energy-icon"><img src={SaveEnergy} alt="save energy" /></div>
+                                    <div className="plant-icon"><img src={Plant} alt="green mindset"/></div>
+                                </div>
+
+                                <div className="tips-info">
+                                    <div className="tip-header">Save more energy</div>
+                                    <div className="tip-text"> Don't hesitate and find out how much energy you can save by following a few simple tips </div>
+                                    <button className="tip-button"> VIEW TIPS</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <img src={StripesBlue} alt="stripes-blue" className="stripes-blue-left-energy-page"/>
+                </div> : <h1 style={{textAlign:"center", marginTop:"20%"}}>Loading data...</h1> }
             </div>
-            <img src={StripesBlue} alt="stripes-blue" className="stripes-blue-left-energy-page"/>
-        </div>
-        
         :
             <h1>Unauthorized</h1>
     );
