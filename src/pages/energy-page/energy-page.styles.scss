@@ -7,14 +7,15 @@
   display: flex;
 }
 .left-energy-container{
+  position: relative;
   padding: 20px;
-  width: 65%;
+  width: 60%;
   margin-bottom: 170px;
 }
 .right-energy-container{
   padding: 20px;
-  width: 35%;
-  height: 113vh;
+  width: 40%;
+  height: 137vh;
   background-color: #F9FAFC;
   display: flex;
   flex-direction: column;
@@ -63,17 +64,29 @@
 
     .stat-price {
       font-weight: bold;
+      @media screen and (max-width: 1300px) {
+        font-size: 12px;
+      }
     }
   }
 
   .stat-icon {
     padding: 16px 0;
-    font-size: 21px;
+    font-size: 18px;
+    @media screen and (max-width: 1300px) {
+      font-size: 12px;
+    }
     background-color: #F9FAFC;;
   }
   
   .stat-value {
-    font-size: 30px;
+    font-size: 25px;
+    @media screen and (max-width: 1300px) {
+      font-size: 18px;
+    }
+    @media screen and (max-width: 1300px) {
+      font-size: 11px;
+    }
   }
 }
 
@@ -82,23 +95,30 @@
   right: 0;
   top: 0;
   z-index: 3;
+  @media screen and (max-width: 1300px) {
+    width: 150px;
+  }
 }
 
 .stripes-blue-left-energy-page {
   position: absolute;
-  top: 100%;
-  z-index: 0;
-  left: 0%;
+  top: 97%;
+  z-index: 3;
+  left: -100px;
+  @media screen and (max-width: 1300px) {
+    width: 150px;
+    top: 102%;
+  }
 }
 
 .tips-box {
   background-color: #EDF0F6;
   font-family: 'Poppins', sans-serif;
   border-radius: 25px;
-  margin: 20px 60px;
+  margin: 7vh 2vw;
   display: flex;
   flex-direction: column;
-  padding: 50px 100px 0px 100px;
+  padding: 8vh 2vw 0vh 2vw;
 
   .icons {
     display: flex;

@@ -25,7 +25,7 @@ export function EnergyPage() {
     const fetchData = async () => {
         let responseEnergyStats = await energyStatistics.getEnergyStatistics(2);
         setEnergyStats(responseEnergyStats);
-        console.log('responseEnergy:', energyStats);
+        // console.log('responseEnergy:', energyStats);
         
         let response: any[] | undefined;
         // replace houseId parameter to the getDailyReadings method with logged in user id
@@ -42,37 +42,39 @@ export function EnergyPage() {
         user ?
         <div className={"energy-page-container"}>
             <img src={StripesDark} alt="stripes-dark" className="stripes-dark-right-top"/>
+            
             <div className={"left-energy-container"}>
                 <h2>{Words.energyConsumption}</h2>
                 <Chart dailyReadings={latestFiveObservations} />
                 <div className={"energy-consumption-today"}>
                     <EnergyPageTodaySection dailyReading={latestObservation}/>
-                    </div>
                 </div>
+                <img src={StripesBlue} alt="stripes-blue" className="stripes-blue-left-energy-page"/>
+            </div>
             <div className={"right-energy-container"}>
                 <div className={"where-money-goes"}>
-                    <h2>Where does my money go?</h2>
+                    <h2>Energy Statistics</h2>
                     <div className="stats-container">
                         <div className="stat-box stat-icon"><ImPower /> 
                             Energy
-                            <div>KWh</div>
+                            <div>2.078 dkk/KWh</div>
                         </div>
 
                         <div className="stat-box">
-                            <div className="stat-value">{energyStats.minEnergy}</div>
                             MIN
+                            <div className="stat-value">{energyStats.minEnergy}</div>
                             <div className="stat-price">{(2.078 * energyStats.minEnergy).toFixed(0)} dkk</div>
                         </div>
 
                         <div className="stat-box">
-                            <div className="stat-value">{energyStats.maxEnergy}</div>
                             MAX
+                            <div className="stat-value">{energyStats.maxEnergy}</div>
                             <div className="stat-price">{(2.078 * energyStats.maxEnergy).toFixed(0)} dkk</div>
                         </div>
 
                         <div className="stat-box">
-                            <div className="stat-value">{energyStats.avgEnergy}</div>
                             AVERAGE
+                            <div className="stat-value">{energyStats.avgEnergy}</div>
                             <div className="stat-price">{(2.078 * energyStats.avgEnergy).toFixed(0)} dkk</div>
                         </div>
                     </div>
@@ -92,7 +94,7 @@ export function EnergyPage() {
                     </div>
                 </div>
             </div>
-            <img src={StripesBlue} alt="stripes-blue" className="stripes-blue-left-energy-page"/>
+            
         </div>
         :
             <h1>Unauthorized</h1>
