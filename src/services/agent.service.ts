@@ -1,9 +1,10 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
 import { history } from '../index';
-import {User, UserFormValues} from "../models/user";
+import {User, UserFormValues, } from "../models/user";
 import {DailyReading} from "../models/daily-reading";
 import {store} from "../stores/store";
+import {EnergyStatistics} from '../models/energy-statistics';
 
 const sleep = (delay: number) => {
     return new Promise((resolve) => {
@@ -82,8 +83,12 @@ const Account = {
     register: (user: UserFormValues) => requests.post<User>('/account/register', user)
 }
 
+const EnergyStats = {
+    list: (houseId: number) => requests.get<EnergyStatistics>('/DailyReadings/statistics?houseId=' + houseId)
+}
+
 const agent = {
-    Account, DailyReadings
+    Account, DailyReadings, EnergyStats
 }
 
 export default agent;

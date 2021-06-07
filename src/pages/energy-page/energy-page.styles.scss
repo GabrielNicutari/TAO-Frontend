@@ -1,36 +1,42 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;900&display=swap');
+
+
 .energy-page-container{
-  margin: 60px 50px 50px 100px;
+  margin: 60px 50px 0 100px;
   display: flex;
 }
 .left-energy-container{
   padding: 20px;
-  width: 60%;
+  width: 65%;
+  margin-bottom: 170px;
 }
 .right-energy-container{
   padding: 20px;
-  width: 40%;
-  height: 77vh;
+  width: 35%;
+  height: 113vh;
   background-color: #F9FAFC;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
+
 .energy-consumption-past-days{
   height: 8rem;
   background-color: lightgray;
 }
+
 .energy-consumption-today{
   margin-top: 2rem;
   height: 10rem;
 }
+
 .where-money-goes{
   padding: 0 20px;
-}
-.energy-tips{
-  margin-top: 6rem;
-  height: 10rem;
-  background-color: mediumpurple;
-
+  
+  h2 {
+    margin: 30px 0;
+  }
 }
 
 .progress-bar {
@@ -38,3 +44,111 @@
   width: 90%;
   background-color: #53D7D7;
 }
+
+.stats-container {
+  display: flex;
+  justify-content: flex-start;
+
+
+  .stat-box {
+
+    margin-right: 5px;
+    background-color: #EDF0F6;
+    // padding: 10px 10px 10px 10px;
+    width: 25%;
+
+    border-radius: 5px;
+    line-height: 2;
+    text-align: center;
+
+    .stat-price {
+      font-weight: bold;
+    }
+  }
+
+  .stat-icon {
+    padding: 16px 0;
+    font-size: 21px;
+    background-color: #F9FAFC;;
+  }
+  
+  .stat-value {
+    font-size: 30px;
+  }
+}
+
+.stripes-dark-right-top {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 3;
+}
+
+.stripes-blue-left-energy-page {
+  position: absolute;
+  top: 100%;
+  z-index: 0;
+  left: 0%;
+}
+
+.tips-box {
+  background-color: #EDF0F6;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 25px;
+  margin: 20px 60px;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 100px 0px 100px;
+
+  .icons {
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-60%);
+  }
+
+  .save-energy-icon {
+    height: 150px;
+    width: 159px;
+  }
+
+  .plant-icon {
+    height: 118px;
+    width: 83px;
+  }
+
+  .tips-info {
+    transform: translateY(-60px);
+  }
+
+  .tip-header {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    transform: translateY(-60%);
+  }
+
+  .tip-text {
+    color: #404852;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 100px;
+    
+  }
+
+  .tip-button {
+    color: white;
+    background: #101010ed;
+    padding: 18px 0;
+    width: 100%;
+    border: none;
+    border-radius: 7px;
+    text-decoration: none;
+    &:hover {
+      background: #101010fb;
+      transition: background .1s color .1s;
+      color: rgb(26 216 216);
+    }
+  }
+}
+
+
