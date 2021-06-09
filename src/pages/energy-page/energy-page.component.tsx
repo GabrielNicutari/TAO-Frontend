@@ -3,16 +3,15 @@ import './energy-page.styles.scss';
 import EnergyPageTodaySection from "../../components/energy-page-today-section/energy-page-today-section.component";
 import Chart from '../../components/chart/chart.component';
 import {useStore} from '../../stores/store';
-import DailyReadingStore from "../../stores/daily-reading.store";
-import {object} from "yup";
 import {Words} from "../../Words";
 import {ImPower} from "react-icons/all";
 import StripesDark from '../../assets/stripes-dark.png';
 import StripesBlue from '../../assets/stripes-blue.png';
 import SaveEnergy from "../../assets/save-energy.png";
 import Plant from "../../assets/plant.png";
+import {observer} from "mobx-react-lite";
 
-export function EnergyPage() {
+export default observer(function EnergyPage() {
     const {dailyReadingStore, userStore: {user}, energyStatistics} = useStore();
     const [latestFiveObservations, setLatestFiveObservations] = useState<any[]>([]);
     const [latestObservation, setLatestObservation] = useState<any>({});
@@ -23,20 +22,26 @@ export function EnergyPage() {
     }, []);
 
     const fetchData = async () => {
-        let responseEnergyStats = await energyStatistics.getEnergyStatistics(2);
+
+        let houseId;
+        user ? houseId = user.house.id : houseId = 1;
+        console.log(user.house);
+
+        let responseEnergyStats = await energyStatistics.getEnergyStatistics(houseId);
         setEnergyStats(responseEnergyStats);
         // console.log('responseEnergy:', energyStats);
         
         let response: any[] | undefined;
         // replace houseId parameter to the getDailyReadings method with logged in user id
-        response = await dailyReadingStore.getDailyReadings(2, 5);
+        response = await dailyReadingStore.getDailyReadings(houseId, 5);
         if (response !== undefined) {
-            setLatestFiveObservations(response);
-            setLatestObservation(response[0]);
-        }
 
-        
+            setLatestFiveObservations(response.$values);
+            setLatestObservation(response.$values[0]);
+        }
     }
+
+    console.log(latestFiveObservations);
 
     return (
         user ? <div>
@@ -101,6 +106,6 @@ export function EnergyPage() {
                 </div> : <h1 style={{textAlign:"center", marginTop:"20%"}}>Loading data...</h1> }
             </div>
         :
-            <h1>Unauthorized</h1>
+            <h1 style={{textAlign:"center", marginTop:"20%"}}>Unauthorized</h1>
     );
-}
+});
