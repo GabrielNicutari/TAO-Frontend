@@ -1,7 +1,7 @@
 import {Link, useLocation} from 'react-router-dom';
 import './nav-bar.styles.scss'
 import {AppBar, Button, Tab, Tabs} from "@material-ui/core";
-import Logo from '../../assets/enapter_dark.png';
+import Logo from '../../assets/newnewlogo.png';
 import { Words } from "../../Words";
 import { useHistory } from "react-router-dom";
 import React from "react";

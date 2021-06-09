@@ -25,7 +25,7 @@ export default observer(function EnergyPage() {
 
         let houseId;
         user ? houseId = user.house.id : houseId = 1;
-        console.log(user.house);
+        //console.log(user.house);
 
         let responseEnergyStats = await energyStatistics.getEnergyStatistics(houseId);
         setEnergyStats(responseEnergyStats);

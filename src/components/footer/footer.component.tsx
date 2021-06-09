@@ -1,6 +1,6 @@
 import React from 'react';
 import './footer.styles.scss';
-import enapterLogo from '../../assets/enapter-logo.png';
+import enapterLogo from '../../assets/newlogowhite.png';
 
 import { FaYoutube } from 'react-icons/fa';
 import { FaInstagram} from 'react-icons/fa';
