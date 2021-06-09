@@ -94,7 +94,7 @@
   right: 0;
   top: 0;
   z-index: 3;
-  @media screen and (max-width: 1300px) {
+  @media screen and (max-width: 1550px) {
     width: 120px;
   }
 }
@@ -104,7 +104,7 @@
   top: calc(100% - 198px);
   z-index: 3;
   left: 0;
-  @media screen and (max-width: 1300px) {
+  @media screen and (max-width: 1550px) {
     top: calc(100% - 144px);
     width: 120px;
   }
