@@ -36,8 +36,8 @@ export default observer(function EnergyPage() {
         response = await dailyReadingStore.getDailyReadings(houseId, 5);
         if (response !== undefined) {
 
-            setLatestFiveObservations(response.$values);
-            setLatestObservation(response.$values[0]);
+            setLatestFiveObservations(response);
+            setLatestObservation(response[0]);
         }
     }
 
